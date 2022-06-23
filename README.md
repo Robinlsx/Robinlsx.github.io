@@ -12,4 +12,4 @@
 
 ## 联系
 
-- (Email)[mailto:Robinlee19@yandex.com] Robinlee19@yandex.com
+- Email : Robinlee19@yandex.com
