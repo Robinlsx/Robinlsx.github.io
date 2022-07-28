@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<title>DBJ | Robinlee19's Site</title>
+<link type="text/css" src="../mysty.css">
+</head>
+<body>
+<h1>暑假作业完成情况</h1>
+<table style="font-size:20px; font-family:宋体">
+<tr>
+<td>科目</td>
+<td>已完成</td>
+<td>/</td>
+<td>总张数</td>
+<td colspan="2">百分比</td>
+</tr>
+<tr>
+<td>语文</td>
+<td style="text-align:center">13</td>
+<td>/</td>
+<td style="text-align:center">20</td>
+<td>65</td>
+<td>%</td>
+</tr>
+<tr style="color:rgb(255,255,255); background-color:rgb(0,255,0,0.95)">
+<td>数学</td>
+<td style="text-align:center">20</td>
+<td>/</td>
+<td style="text-align:center">20</td>
+<td>100</td>
+<td>%</td>
+</tr>
+<tr style="color:rgb(255,255,255); background-color:rgb(0,255,0,0.95)">
+<td>英语</td>
+<td style="text-align:center">20</td>
+<td>/</td>
+<td style="text-align:center">20</td>
+<td>100</td>
+<td>%</td>
+</tr>
+<tr style="color:rgb(255,255,255); background-color:rgb(0,255,0,0.95)">
+<td>物理</td>
+<td style="text-align:center">20</td>
+<td>/</td>
+<td style="text-align:center">20</td>
+<td>100</td>
+<td>%</td>
+</tr>
+<tr style="color:rgb(255,255,255); background-color:rgb(0,255,0,0.95)">
+<td>化学</td>
+<td style="text-align:center">6</td>
+<td>/</td>
+<td style="text-align:center">6</td>
+<td>100</td>
+<td>%</td>
+</tr>
+<tr>
+<td>政治</td>
+<td style="text-align:center">8</td>
+<td>/</td>
+<td style="text-align:center">12</td>
+<td>66.7</td>
+<td>%</td>
+</tr>
+<tr style="color:rgb(255,255,255); background-color:rgb(0,255,0,0.95)">
+<td>历史</td>
+<td style="text-align:center">12</td>
+<td>/</td>
+<td style="text-align:center">12</td>
+<td>100</td>
+<td>%</td>
+</tr>
+<tr style="color:rgb(255,255,255); background-color:rgb(0,0,0)">
+<td>总计</td>
+<td style="text-align:center" id="nw">99</td>
+<td>/</td>
+<td style="text-align:center" id="tot">110</td>
+<td>90</td>
+<td>%</td>
+</tr>
+</table>
+<p style="font-size:24px; font-family:宋体">
+距离目标<span style="font-size:16px; font-family:'Century'">(Jul. 31st)</span>还剩 <ins><span id="leftday">?</span></ins> 天，总张数剩余 <ins><span id="leftno">?</span></ins> 张(<ins><span id="leftperc">?</span></ins> %)
+</p>
+<script type="text/javascript">
+var tot=110;
+var now=99;
+var lft=tot-now;
+var lftper=lft/tot*100;
+var d=new Date();
+document.getElementById("nw").innerHTML=now;
+document.getElementById("tot").innerHTML=tot;
+document.getElementById("leftday").innerHTML=31-d.getDate();
+document.getElementById("leftno").innerHTML=lft;
+document.getElementById("leftperc").innerHTML=lftper;
+</script>
+<footer>
+<div style="width:100%; background-color:rgb(255,0,0,0.2); text-align:center; position:bottom; margin-top:10px">
+<span><a href="../index.html">Homepage</a></span> | 
+<span><a href="../feedback.html">Feedback</a></span> | 
+<span><a href="mailto:Robinlee19@yandex.com">Contact us</a></span>
+<br>
+<span>Copyright © Robinlee19</span>
+</div>
+</footer>
+</body>
