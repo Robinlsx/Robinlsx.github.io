@@ -1,12 +1,14 @@
 <!DOCTYPE html>
+<html lang="zh-cn">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DBJ | Robinlee19's Site</title>
-<link type="text/css" src="../mysty.css">
+<link rel="stylesheet" href="../style.css">
 </head>
 <body>
-<h1>暑假作业完成情况</h1>
-<table style="font-size:20px; font-family:宋体">
+<h1 class="h1">暑假作业完成情况</h1>
+<table class="tablesong">
 <tr>
 <td>科目</td>
 <td>已完成</td>
@@ -16,86 +18,108 @@
 </tr>
 <tr>
 <td>语文</td>
-<td style="text-align:center">13</td>
+<td class="cen" id="chn">??</td>
 <td>/</td>
-<td style="text-align:center">20</td>
-<td>65</td>
+<td class="cen">20</td>
+<td id="chnp">??</td>
 <td>%</td>
 </tr>
-<tr style="color:rgb(255,255,255); background-color:rgb(0,255,0,0.95)">
+<tr class="G">
 <td>数学</td>
-<td style="text-align:center">20</td>
+<td class="cen" id="mth">??</td>
 <td>/</td>
-<td style="text-align:center">20</td>
-<td>100</td>
+<td class="cen">20</td>
+<td id="mthp">??</td>
 <td>%</td>
 </tr>
-<tr style="color:rgb(255,255,255); background-color:rgb(0,255,0,0.95)">
+<tr class="G">
 <td>英语</td>
-<td style="text-align:center">20</td>
+<td class="cen" id="eng">??</td>
 <td>/</td>
-<td style="text-align:center">20</td>
-<td>100</td>
+<td class="cen">20</td>
+<td id="engp">??</td>
 <td>%</td>
 </tr>
-<tr style="color:rgb(255,255,255); background-color:rgb(0,255,0,0.95)">
+<tr class="G">
 <td>物理</td>
-<td style="text-align:center">20</td>
+<td class="cen" id="phy">??</td>
 <td>/</td>
-<td style="text-align:center">20</td>
-<td>100</td>
+<td class="cen">20</td>
+<td id="phyp">??</td>
 <td>%</td>
 </tr>
-<tr style="color:rgb(255,255,255); background-color:rgb(0,255,0,0.95)">
+<tr class="G">
 <td>化学</td>
-<td style="text-align:center">6</td>
+<td class="cen" id="che">??</td>
 <td>/</td>
-<td style="text-align:center">6</td>
-<td>100</td>
+<td class="cen">6</td>
+<td id="chep">??</td>
 <td>%</td>
 </tr>
-<tr>
+<tr class="G">
 <td>政治</td>
-<td style="text-align:center">8</td>
+<td class="cen" id="pol">??</td>
 <td>/</td>
-<td style="text-align:center">12</td>
-<td>66.7</td>
+<td class="cen">12</td>
+<td id="polp">??</td>
 <td>%</td>
 </tr>
-<tr style="color:rgb(255,255,255); background-color:rgb(0,255,0,0.95)">
+<tr class="G">
 <td>历史</td>
-<td style="text-align:center">12</td>
+<td class="cen" id="his">??</td>
 <td>/</td>
-<td style="text-align:center">12</td>
-<td>100</td>
+<td class="cen">12</td>
+<td id="hisp">??</td>
 <td>%</td>
 </tr>
-<tr style="color:rgb(255,255,255); background-color:rgb(0,0,0)">
+<tr class="BL">
 <td>总计</td>
-<td style="text-align:center" id="nw">99</td>
+<td class="cen" id="nw">???</td>
 <td>/</td>
-<td style="text-align:center" id="tot">110</td>
-<td>90</td>
+<td class="cen" id="tot">110</td>
+<td id="totp">??</td>
 <td>%</td>
 </tr>
 </table>
-<p style="font-size:24px; font-family:宋体">
+<p class="psong">
 距离目标<span style="font-size:16px; font-family:'Century'">(Jul. 31st)</span>还剩 <ins><span id="leftday">?</span></ins> 天，总张数剩余 <ins><span id="leftno">?</span></ins> 张(<ins><span id="leftperc">?</span></ins> %)
 </p>
 <script type="text/javascript">
+var chn=14;
+var mth=20;
+var eng=20;
+var phy=20;
+var che=6;
+var pol=12;
+var his=12;
 var tot=110;
-var now=99;
+var now=chn+mth+eng+phy+che+pol+his;
 var lft=tot-now;
 var lftper=lft/tot*100;
 var d=new Date();
+document.getElementById("chn").innerHTML=chn;
+document.getElementById("chnp").innerHTML=Number((chn/20*100).toFixed(1));
+document.getElementById("mth").innerHTML=mth;
+document.getElementById("mthp").innerHTML=Number((mth/20*100).toFixed(1));
+document.getElementById("eng").innerHTML=eng;
+document.getElementById("engp").innerHTML=Number((eng/20*100).toFixed(1));
+document.getElementById("phy").innerHTML=phy;
+document.getElementById("phyp").innerHTML=Number((phy/20*100).toFixed(1));
+document.getElementById("che").innerHTML=che;
+document.getElementById("chep").innerHTML=Number((che/6*100).toFixed(1));
+document.getElementById("pol").innerHTML=pol;
+document.getElementById("polp").innerHTML=Number((pol/12*100).toFixed(1));
+document.getElementById("his").innerHTML=his;
+document.getElementById("hisp").innerHTML=Number((his/12*100).toFixed(1));
 document.getElementById("nw").innerHTML=now;
 document.getElementById("tot").innerHTML=tot;
+document.getElementById("totp").innerHTML=Number((now/tot*100).toFixed(1));
 document.getElementById("leftday").innerHTML=31-d.getDate();
 document.getElementById("leftno").innerHTML=lft;
-document.getElementById("leftperc").innerHTML=lftper;
+document.getElementById("leftperc").innerHTML=Number((lftper).toFixed(1));
 </script>
 <footer>
-<div style="width:100%; background-color:rgb(255,0,0,0.2); text-align:center; position:bottom; margin-top:10px">
+<div class="ftr">
 <span><a href="../index.html">Homepage</a></span> | 
 <span><a href="../feedback.html">Feedback</a></span> | 
 <span><a href="mailto:Robinlee19@yandex.com">Contact us</a></span>
@@ -104,3 +128,4 @@ document.getElementById("leftperc").innerHTML=lftper;
 </div>
 </footer>
 </body>
+</html>

@@ -1,0 +1,71 @@
+.h1
+{
+	color:rgb(0,0,0);
+	font-size:36px;
+	font-family:微软雅黑;
+	text-align:left
+}
+
+.tablesong
+{
+	font-size:20px;
+	font-family:宋体
+}
+
+.G
+{
+	color:rgb(255,255,255);
+	background-color:rgb(0,255,0,0.95)
+}
+
+.BL
+{
+	color:rgb(255,255,255);
+	background-color:rgb(0,0,0)
+}
+
+.cen
+{
+	text-align:center
+}
+
+.psong
+{
+	font-size:24px;
+	font-family:宋体
+}
+
+.ftr
+{
+	width:100%;
+	background-color:rgb(255,0,0,0.2);
+	text-align:center;
+	position:bottom;
+	margin-top:10px
+}
+
+.hh1
+{
+	font-size:48px;
+	font-family:Consolas
+}
+
+.Gb
+{
+	background-color:rgb(0,255,0,0.2)
+}
+
+.Bb
+{
+	background-color:rgb(0,0,255,0.2)
+}
+
+.pp
+{
+	font-size:32px
+}
+
+.Grb
+{
+	background-color:rgb(127,127,127,0.3)
+}
