@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/fontawesome.min.css" integrity="sha512-xX2rYBFJSj86W54Fyv1de80DWBq7zYLn2z0I9bIhQG+rxIF6XVJUpdGnsNHWRa6AvP89vtFupEPDP8eZAtu9qA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="./login.css">
+        <title>Login | Robinlee19's Site</title>
+    </head>
+    <body>
+        <h2>登录 Sign In / 注册 Sign Up</h2>
+        <div class="container" id="container">
+            <div class="form-container sign-up-container">
+                <form action="">
+                    <h1>创建账户 Create Account</h1>
+                    <div class="social-container">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-google-plus-g"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <span>或者使用你的邮件来注册 or use your email for registration</span>
+                    <input type="text" placeholder="姓名 Name">
+                    <input type="email" placeholder="邮件 Email">
+                    <input type="password" placeholder="密码 Password">
+                    <button>注册 Sign Up</button>
+                </form>
+            </div>
+            <div class="form-container sign-in-container">
+                <form action="">
+                    <h1>登录 Sign In</h1>
+                    <div class="social-container">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-google-plus-g"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <span>或者使用你的账号 or use your account</span>
+                    <input type="email" placeholder="邮件 Email">
+                    <input type="password" placeholder="密码 Password">
+                    <a href="#">忘记密码？ Forgot your password?</a>
+                    <button>登录 Sign In</button>
+                </form>
+            </div>
+            <div class="overlay-container">
+                <div class="overlay">
+                    <div class="overlay-panel overlay-left">
+                        <h1>欢迎回来！<br>Welcome Back!</h1>
+                        <p>
+                            请登录以和我们保持联系！<br>
+                            To keep connected with us please login with your personal info!
+                        </p>
+                        <button class="ghost" id="signin">登录 Sign In</button>
+                    </div>
+                    <div class="overlay-panel overlay-right">
+                        <h1>你好，朋友！<br>Hello, Friend!</h1>
+                        <p>
+                            输入你的个人信息，和我们一起玩吧！<br>
+                            Enter your personal details and start journey with us!
+                        </p>
+                        <button class="ghost" id="signup">注册 Sign Up</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <p>
+                Created with <i class="fa fa-heart"></i> by
+                <a href="mailto:Robinlee19@yandex.com">Robinlee19</a>
+            </p>
+        </footer>
+        <script src="./login.js"></script>
+    </body>
+</html>
