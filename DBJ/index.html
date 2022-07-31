@@ -16,7 +16,7 @@
 <td>总张数</td>
 <td colspan="2">百分比</td>
 </tr>
-<tr>
+<tr class="G">
 <td>语文</td>
 <td class="cen" id="chn">??</td>
 <td>/</td>
@@ -81,8 +81,8 @@
 <td>%</td>
 </tr>
 </table>
-<p class="psong">
-距离目标<span style="font-size:16px; font-family:'Century'">(Jul. 31st)</span>还剩 <ins><span id="leftday">?</span></ins> 天，总张数剩余 <ins><span id="leftno">?</span></ins> 张(<ins><span id="leftperc">?</span></ins> %)
+<p class="psong G">
+距离目标<span style="font-size:16px; font-family:'Century'">(Jul. 31st)</span>还剩 <ins><span id="leftday">0</span></ins> 天，总张数剩余 <ins><span id="leftno">0</span></ins> 张(<ins><span id="leftperc">0</span></ins> %)
 </p>
 <script type="text/javascript">
 var chn=20;
@@ -114,9 +114,9 @@ document.getElementById("hisp").innerHTML=Number((his/12*100).toFixed(1));
 document.getElementById("nw").innerHTML=now;
 document.getElementById("tot").innerHTML=tot;
 document.getElementById("totp").innerHTML=Number((now/tot*100).toFixed(1));
-document.getElementById("leftday").innerHTML=31-d.getDate();
-document.getElementById("leftno").innerHTML=lft;
-document.getElementById("leftperc").innerHTML=Number((lftper).toFixed(1));
+//document.getElementById("leftday").innerHTML=31-d.getDate();
+//document.getElementById("leftno").innerHTML=lft;
+//document.getElementById("leftperc").innerHTML=Number((lftper).toFixed(1));
 </script>
 <footer>
 <div class="ftr">

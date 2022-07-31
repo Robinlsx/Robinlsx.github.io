@@ -75,3 +75,26 @@
 	border:2px solid #000000;
 	border-radius: 10px
 }
+
+.container{
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	flex: content;
+	text-align: center;
+	background-color: #3f0000;
+	color: #fff;
+	font-family: 'Cascadia Code','微软雅黑';
+	font-size: 30px;
+	font-weight: 1000;
+	overflow: hidden;
+}
+
+.rickrollbtn{
+	height: 100px;
+	width: 1200px;
+	font-size: 28px;
+	font-family: 'Consolas','宋体';
+	color: #ff0000;
+	font-weight: 1000;
+}

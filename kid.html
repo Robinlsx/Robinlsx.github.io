@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+        <link rel="stylesheet" href="./style.css">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Are you kidding? | Robinlee19's Site</title>
+    </head>
+    <body>
+        <div class="container">
+            <p>
+                <b>[ FBI WARNING ]</b><br><br>
+                Are you kidding?<br>
+                Do you REALLY think Robinlee19 can afford to buy an API from Facebook or Google or Linked-in?<br>
+                You must be kidding.<br>
+                Anyway, GET BACK RIGHT NOW!!!<br><br><br>
+                你在开玩笑吗？<br>
+                你真的认为 Robinlee19 有钱买脸书或者谷歌或者领英的API(接口)吗？<br>
+                你绝对在开玩笑。<br>
+                无论如何，<b>现 在 立 刻 马 上 回 去</b>！！！<br>
+                <br>
+                <button onclick="rickroll()" class="rickrollbtn" id="rickrollbtn">NEVER click on this 永远不要点这个</button>
+            </p>
+        </div>
+        <script type="text/javascript">
+            var cnt=0;
+            const btn=document.getElementById('rickrollbtn');
+            function rickroll()
+            {
+                cnt++;
+                if(cnt==1)
+                    btn.innerHTML="NEVER click on this TWICE 永远不要点这个两次";
+                if(cnt==2)
+                    btn.innerHTML="NEVER click on this THREE TIMES 永远不要点这个三次";
+                if(cnt==3)
+                    btn.innerHTML="NEVER click on this FOUR TIMES 永远不要点这个四次";
+                if(cnt==4)
+                    btn.innerHTML="LAST CHANCE 最后通牒<br>NEVER click on this FIVE TIMES!!! 永远不要点这个五次！！！";
+                if(cnt>=5)
+                {
+                    btn.innerHTML="You are rickrolled lol<br>你被骗了哈哈哈";
+                    window.location.href="https://www.bilibili.com/video/BV1GJ411x7h7";
+                }
+            }
+        </script>
+    </body>
+</html>
