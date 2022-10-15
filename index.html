@@ -4,6 +4,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Robinlee19's Site</title>
+
+    <!--Layui 链接库-->
+    <link rel="stylesheet" href="./layui/css/layui.css">
+    <link rel="stylesheet" href="./layer/theme/default/layer.css">
+    <script src="./layui/layui.js"></script>
+    <script src="./layer/layer.js"></script>
+    
+    <script type="text/javascript">
+        layui.config({
+            version: false,
+            debug: false
+        });
+        layui.use(function(){
+            var layer=layui.layer,laydate=layui.laydate,table=layui.table;
+        });
+        console.log("欢迎访问 Robinlee19's Site!");
+        console.log("当前操作系统: "+layui.device().os);
+        console.log("当前是否为移动环境: "+layui.device().mobile);
+        layui.hint().error("测试错误输出...");
+    </script>
 </head>
 <body>
     <h1 class="hh1 Gb">Robinlee19's Site</h1>
@@ -18,17 +38,17 @@
                         <img src="taiju\img\Logo.png" width="100px" height="100px" alt="taijulogo">
                     </a>
                 </td>
-                <td width="700px" height="100px" class="tableborder" style="color:rgb(127,127,200,1); text-align:center">
+                <td class="tableborder" style="color:rgb(127,127,200,1); text-align:center">
                     <span style="font:微软雅黑; font-size:56px">Go to <ins>泰剧补习班</ins> ?</span>
                 </td>
             </tr>
             <tr>
-                <td width="100px" height="100px" class="tableborder" style="text-align:center">
+                <td height="100px" class="tableborder" style="text-align:center">
                     <a href="sth\index.html" style="text-decoration:none">
                         <span style="font-size:72px">?</span>
                     </a>
                 </td>
-                <td width="700px" height="100px" class="tableborder" style="color:rgb(127,127,200,1); text-align:center">
+                <td class="tableborder" style="color:rgb(127,127,200,1); text-align:center">
                     <span style="font:微软雅黑; font-size:56px">See Something... ?</span>
                 </td>
             </tr>

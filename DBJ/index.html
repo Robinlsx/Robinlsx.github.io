@@ -1,131 +1,141 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DBJ | Robinlee19's Site</title>
-<link rel="stylesheet" href="../style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DBJ | Robinlee19's Site</title>
+    <link rel="stylesheet" href="../style.css">
+    <!--Layui 链接库-->
+    <link rel="stylesheet" href="../layui/css/layui.css">
+    <link rel="stylesheet" href="../layer/theme/default/layer.css">
+    <script src="../layui/layui.js"></script>
+    <script src="../layer/layer.js"></script>
 </head>
+
 <body>
-<h1 class="h1">暑假作业完成情况</h1>
-<table class="tablesong">
-<tr>
-<td>科目</td>
-<td>已完成</td>
-<td>/</td>
-<td>总张数</td>
-<td colspan="2">百分比</td>
-</tr>
-<tr class="G">
-<td>语文</td>
-<td class="cen" id="chn">??</td>
-<td>/</td>
-<td class="cen">20</td>
-<td id="chnp">??</td>
-<td>%</td>
-</tr>
-<tr class="G">
-<td>数学</td>
-<td class="cen" id="mth">??</td>
-<td>/</td>
-<td class="cen">20</td>
-<td id="mthp">??</td>
-<td>%</td>
-</tr>
-<tr class="G">
-<td>英语</td>
-<td class="cen" id="eng">??</td>
-<td>/</td>
-<td class="cen">20</td>
-<td id="engp">??</td>
-<td>%</td>
-</tr>
-<tr class="G">
-<td>物理</td>
-<td class="cen" id="phy">??</td>
-<td>/</td>
-<td class="cen">20</td>
-<td id="phyp">??</td>
-<td>%</td>
-</tr>
-<tr class="G">
-<td>化学</td>
-<td class="cen" id="che">??</td>
-<td>/</td>
-<td class="cen">6</td>
-<td id="chep">??</td>
-<td>%</td>
-</tr>
-<tr class="G">
-<td>政治</td>
-<td class="cen" id="pol">??</td>
-<td>/</td>
-<td class="cen">12</td>
-<td id="polp">??</td>
-<td>%</td>
-</tr>
-<tr class="G">
-<td>历史</td>
-<td class="cen" id="his">??</td>
-<td>/</td>
-<td class="cen">12</td>
-<td id="hisp">??</td>
-<td>%</td>
-</tr>
-<tr class="BL">
-<td>总计</td>
-<td class="cen" id="nw">???</td>
-<td>/</td>
-<td class="cen" id="tot">110</td>
-<td id="totp">??</td>
-<td>%</td>
-</tr>
-</table>
-<p class="psong G">
-距离目标<span style="font-size:16px; font-family:'Century'">(Jul. 31st)</span>还剩 <ins><span id="leftday">0</span></ins> 天，总张数剩余 <ins><span id="leftno">0</span></ins> 张(<ins><span id="leftperc">0</span></ins> %)
-</p>
-<script type="text/javascript">
-var chn=20;
-var mth=20;
-var eng=20;
-var phy=20;
-var che=6;
-var pol=12;
-var his=12;
-var tot=110;
-var now=chn+mth+eng+phy+che+pol+his;
-var lft=tot-now;
-var lftper=lft/tot*100;
-var d=new Date();
-document.getElementById("chn").innerHTML=chn;
-document.getElementById("chnp").innerHTML=Number((chn/20*100).toFixed(1));
-document.getElementById("mth").innerHTML=mth;
-document.getElementById("mthp").innerHTML=Number((mth/20*100).toFixed(1));
-document.getElementById("eng").innerHTML=eng;
-document.getElementById("engp").innerHTML=Number((eng/20*100).toFixed(1));
-document.getElementById("phy").innerHTML=phy;
-document.getElementById("phyp").innerHTML=Number((phy/20*100).toFixed(1));
-document.getElementById("che").innerHTML=che;
-document.getElementById("chep").innerHTML=Number((che/6*100).toFixed(1));
-document.getElementById("pol").innerHTML=pol;
-document.getElementById("polp").innerHTML=Number((pol/12*100).toFixed(1));
-document.getElementById("his").innerHTML=his;
-document.getElementById("hisp").innerHTML=Number((his/12*100).toFixed(1));
-document.getElementById("nw").innerHTML=now;
-document.getElementById("tot").innerHTML=tot;
-document.getElementById("totp").innerHTML=Number((now/tot*100).toFixed(1));
+    <h1 class="h1">暑假作业完成情况</h1>
+    <table class="tablesong">
+        <tr>
+            <td>科目</td>
+            <td>已完成</td>
+            <td>/</td>
+            <td>总张数</td>
+            <td colspan="2">百分比</td>
+        </tr>
+        <tr class="G">
+            <td>语文</td>
+            <td class="cen" id="chn">??</td>
+            <td>/</td>
+            <td class="cen">20</td>
+            <td id="chnp">??</td>
+            <td>%</td>
+        </tr>
+        <tr class="G">
+            <td>数学</td>
+            <td class="cen" id="mth">??</td>
+            <td>/</td>
+            <td class="cen">20</td>
+            <td id="mthp">??</td>
+            <td>%</td>
+        </tr>
+        <tr class="G">
+            <td>英语</td>
+            <td class="cen" id="eng">??</td>
+            <td>/</td>
+            <td class="cen">20</td>
+            <td id="engp">??</td>
+            <td>%</td>
+        </tr>
+        <tr class="G">
+            <td>物理</td>
+            <td class="cen" id="phy">??</td>
+            <td>/</td>
+            <td class="cen">20</td>
+            <td id="phyp">??</td>
+            <td>%</td>
+        </tr>
+        <tr class="G">
+            <td>化学</td>
+            <td class="cen" id="che">??</td>
+            <td>/</td>
+            <td class="cen">6</td>
+            <td id="chep">??</td>
+            <td>%</td>
+        </tr>
+        <tr class="G">
+            <td>政治</td>
+            <td class="cen" id="pol">??</td>
+            <td>/</td>
+            <td class="cen">12</td>
+            <td id="polp">??</td>
+            <td>%</td>
+        </tr>
+        <tr class="G">
+            <td>历史</td>
+            <td class="cen" id="his">??</td>
+            <td>/</td>
+            <td class="cen">12</td>
+            <td id="hisp">??</td>
+            <td>%</td>
+        </tr>
+        <tr class="BL">
+            <td>总计</td>
+            <td class="cen" id="nw">???</td>
+            <td>/</td>
+            <td class="cen" id="tot">110</td>
+            <td id="totp">??</td>
+            <td>%</td>
+        </tr>
+    </table>
+    <p class="psong G">
+        距离目标<span style="font-size:16px; font-family:'Century'">(Jul. 31st)</span>还剩 <ins><span
+                id="leftday">0</span></ins> 天，总张数剩余 <ins><span id="leftno">0</span></ins> 张(<ins><span
+                id="leftperc">0</span></ins> %)
+    </p>
+    <script type="text/javascript">
+        var chn = 20;
+        var mth = 20;
+        var eng = 20;
+        var phy = 20;
+        var che = 6;
+        var pol = 12;
+        var his = 12;
+        var tot = 110;
+        var now = chn + mth + eng + phy + che + pol + his;
+        var lft = tot - now;
+        var lftper = lft / tot * 100;
+        var d = new Date();
+        document.getElementById("chn").innerHTML = chn;
+        document.getElementById("chnp").innerHTML = Number((chn / 20 * 100).toFixed(1));
+        document.getElementById("mth").innerHTML = mth;
+        document.getElementById("mthp").innerHTML = Number((mth / 20 * 100).toFixed(1));
+        document.getElementById("eng").innerHTML = eng;
+        document.getElementById("engp").innerHTML = Number((eng / 20 * 100).toFixed(1));
+        document.getElementById("phy").innerHTML = phy;
+        document.getElementById("phyp").innerHTML = Number((phy / 20 * 100).toFixed(1));
+        document.getElementById("che").innerHTML = che;
+        document.getElementById("chep").innerHTML = Number((che / 6 * 100).toFixed(1));
+        document.getElementById("pol").innerHTML = pol;
+        document.getElementById("polp").innerHTML = Number((pol / 12 * 100).toFixed(1));
+        document.getElementById("his").innerHTML = his;
+        document.getElementById("hisp").innerHTML = Number((his / 12 * 100).toFixed(1));
+        document.getElementById("nw").innerHTML = now;
+        document.getElementById("tot").innerHTML = tot;
+        document.getElementById("totp").innerHTML = Number((now / tot * 100).toFixed(1));
 //document.getElementById("leftday").innerHTML=31-d.getDate();
 //document.getElementById("leftno").innerHTML=lft;
 //document.getElementById("leftperc").innerHTML=Number((lftper).toFixed(1));
-</script>
-<footer>
-<div class="ftr">
-<span><a href="../index.html">Homepage</a></span> | 
-<span><a href="../feedback.html">Feedback</a></span> | 
-<span><a href="mailto:Robinlee19@yandex.com">Contact us</a></span>
-<br>
-<span>Copyright © Robinlee19</span>
-</div>
-</footer>
+    </script>
+    <footer>
+        <div class="ftr">
+            <span><a href="../index.html">Homepage</a></span> |
+            <span><a href="../feedback.html">Feedback</a></span> |
+            <span><a href="mailto:Robinlee19@yandex.com">Contact us</a></span>
+            <br>
+            <span>Copyright © Robinlee19</span>
+        </div>
+    </footer>
 </body>
+
 </html>
