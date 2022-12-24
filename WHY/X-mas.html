@@ -1,0 +1,72 @@
+<head>
+    <title>Merry Christmas! | Robinlee19's Site</title>
+    <meta charset="UTF-8">
+    <!--Layui 链接库-->
+    <link rel="stylesheet" href="../layui/css/layui.css">
+    <link rel="stylesheet" href="../layer/theme/default/layer.css">
+    <script src="../layui/layui.js"></script>
+    <script src="../layer/layer.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body style="background-color: #000000;">
+    <p style="font-family: '宋体'; font-size: 23px; color:rgb(19,161,14); line-height: 21.3px; letter-spacing: 0.0px;">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;■■<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;■■<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;■■<span id="1">■</span>■<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;■■■■<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;■■■■■■<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;■■<span id="2">■</span>■■■<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;■■<span id="3">■</span>■■■■■<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;■■■■■■<span id="4">■</span>■<br>
+        &nbsp;&nbsp;&nbsp;■■<span id="5">■</span>■■■<span id="6">■</span>■■■<br>
+        &nbsp;&nbsp;&nbsp;■■■■■■■■■■<br>
+        &nbsp;&nbsp;■■■<span id="7">■</span>■■■■■■■■<br>
+        &nbsp;&nbsp;■■■■■■■■■■■<span id="8">■</span><br>
+        &nbsp;■■■■■■■<span id="9">■</span>■■■■■■<br>
+        &nbsp;■<span id="10">■</span>■■■■■■■■■■<span id="11">■</span>■<br>
+        ■<span id="12">■</span>■■■■■■■■■■■■■■<br>
+        ■■■■■■<span id="13">■</span>■■■■■■■<span id="14">■</span>■<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;■■<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;■■<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;■■<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;■■<br>
+    </p>
+    <script>
+        var c=["#ff0000","#ffff00"];
+        var l1=document.getElementById("1");
+        var l2=document.getElementById("2");
+        var l3=document.getElementById("3");
+        var l4=document.getElementById("4");
+        var l5=document.getElementById("5");
+        var l6=document.getElementById("6");
+        var l7=document.getElementById("7");
+        var l8=document.getElementById("8");
+        var l9=document.getElementById("9");
+        var l10=document.getElementById("10");
+        var l11=document.getElementById("11");
+        var l12=document.getElementById("12");
+        var l13=document.getElementById("13");
+        var l14=document.getElementById("14");
+        var a=0;
+        function changeColor()
+        {
+            a=1-a;
+            l1.style="color:"+c[a];
+            l3.style="color:"+c[a];
+            l5.style="color:"+c[a];
+            l7.style="color:"+c[a];
+            l9.style="color:"+c[a];
+            l11.style="color:"+c[a];
+            l13.style="color:"+c[a];
+            
+            l2.style="color:"+c[1-parseInt(a)];
+            l4.style="color:"+c[1-parseInt(a)];
+            l6.style="color:"+c[1-parseInt(a)];
+            l8.style="color:"+c[1-parseInt(a)];
+            l10.style="color:"+c[1-parseInt(a)];
+            l12.style="color:"+c[1-parseInt(a)];
+            l14.style="color:"+c[1-parseInt(a)];
+        }
+        setInterval("changeColor();", 1000);
+    </script>
+</body>
