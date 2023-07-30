@@ -1,0 +1,227 @@
+.box{
+    position: relative;
+    width: 510px;
+    height: 100px;
+    margin: 0px auto;
+    /*transform-style: preserve-3d;
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);*/
+}
+.box1{
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin: 0px;
+    display: inline;
+    float: left;
+    line-height: 100px;
+}
+.box2{
+    position: relative;
+    width: 500px;
+    height: 50px;
+    margin: 0px auto;
+}
+/*左*/
+/*
+@keyframes move1{
+    0%{
+        transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    }
+    100%{
+        transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    }
+}
+@keyframes move2{
+    0%{
+        transform: rotateX(-20deg) rotateY(-30deg) rotateZ(0deg);
+    }
+    100%{
+        transform: rotateX(160deg) rotateY(30deg) rotateZ(0deg);
+    }
+}
+@keyframes move3{
+    0%{
+        transform: rotateX(-20deg) rotateY(-30deg) rotateZ(0deg);
+    }
+    100%{
+        transform: rotateX(-20deg) rotateY(-30deg) rotateZ(90deg);
+    }
+}
+@keyframes move4{
+    0%{
+        transform: rotateX(-20deg) rotateY(-30deg) rotateZ(0deg);
+    }
+    100%{
+        transform: rotateX(160deg) rotateY(-60deg) rotateZ(90deg);
+    }
+}
+@keyframes move5{
+    0%{
+        transform: rotateX(-20deg) rotateY(-30deg) rotateZ(0deg);
+    }
+    100%{
+        transform: rotateX(70deg) rotateY(0deg) rotateZ(-60deg);
+    }
+}
+@keyframes move6{
+    0%{
+        transform: rotateX(-20deg) rotateY(-30deg) rotateZ(0deg);
+    }
+    100%{
+        transform: rotateX(-110deg) rotateY(0deg) rotateZ(-30deg);
+    }
+}*/
+.part{
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    line-height: 100px;
+    font-size: 144px;
+    color: #fff;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    /*transition: 1s ease;*/
+}
+.part .iconfont{
+    font-size: 20px;
+    color: #fff;
+    margin-right: 10px;
+}
+
+.c1, .c4{
+    color: #f00;
+}
+
+.c2, .c3, .c5, .c6{
+    color: #000;
+}
+
+.btn{
+    background: #77abca;
+    padding: 10px;
+    text-align: center;
+    width: 100px;
+    margin: 0px auto;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 999;
+    top: 0;
+    position: relative;
+}
+.btn:hover{
+    background: #5999bf;
+}
+
+.homepage{
+    position: relative;
+    margin: 0px auto;
+    height: 500px;
+    width: 500px;
+    text-align: center;
+}
+
+.buttonHome{
+    background-color: #fff;
+    color: #000;
+    border-radius: 20px;
+    width: 200px;
+    height: 50px;
+    font-size: 36px;
+    font-family: "Times New Roman";
+    margin-bottom: 15px;
+}
+
+.buttonHome:hover{
+    background-color: #ddd;
+}
+
+.buttonBack{
+    background-color: #fff;
+    color: #000;
+    border-radius: 20px;
+    width: 100px;
+    height: 40px;
+    font-size: 18px;
+    font-family: "Segoe UI";
+    margin-top: 15px;
+}
+
+.buttonBack:hover{
+    background-color: #ddd;
+}
+
+.alertDialog{
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    background-color: #fff;
+    margin: 0px auto;
+    align-items: center;
+}
+
+.numPpl{
+    background-color: #fff;
+    border-color: #000;
+    border-width: 3px;
+}
+.numPpl:hover{
+    background-color: #ddd;
+}
+
+.buttonGoPlay{    
+    background-color: #fff;
+    color: #000;
+    border-radius: 20px;
+    width: 180px;
+    height: 40px;
+    font-size: 18px;
+    font-family: "Segoe UI";
+    margin-top: 15px;
+}
+.buttonGoPlay:hover{
+    background-color: #ddd;
+}
+
+.scoringExplanation{
+    border: 3px solid;
+    border-spacing: 5px;
+    margin-left: auto;
+    margin-right: auto;
+}
+th{
+    font-weight: bold;
+}
+
+.scoringTable{
+    border: 3px solid;
+    border-spacing: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -20px;
+}
+
+.score{
+    background-color: #fff;
+    color: #000;
+    border: 0;
+    width: 30px;
+    height: 24px;
+    font-size: 18px;
+    font-family: "Segoe UI";
+}
+.score:hover{
+    background-color: #ddd;
+}
+
+.highlightPlayer{
+    background-color: #ddd;
+}
+
+.winner{
+    background-color: gold;
+}

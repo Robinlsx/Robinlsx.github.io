@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>快艇骰子 Yahtzee | Robinlee19's Site</title>
+        <link rel="stylesheet" href="iconfont.css"/>
+        <link rel="stylesheet" href="yahtzee.css"/>
+    </head>
+    <body>
+        <div class="homepage">
+            <h1>快艇骰子 Yahtzee</h1>
+            <button class="buttonHome" onclick="goSetNumPpl()">Start</button><br>
+            <button class="buttonHome" onclick="about()">About</button>
+        </div>
+        <div class="alertDialog" id="about" hidden>
+            <h2>About</h2>
+            制作者：Robinlee19<br>
+            鸣谢：？<br>
+            <button class="buttonBack" onclick="quitAbout()">返回</button>
+        </div>
+        <div class="alertDialog" id="chooseNum" hidden>
+            <h2>请选择游玩人数</h2>
+            <button class="numPpl" id="p1" onclick="setNumPpl(1)">1人</button>
+            <button class="numPpl" id="p2" onclick="setNumPpl(2)">2人</button>
+            <button class="numPpl" id="p3" onclick="setNumPpl(3)">3人</button>
+            <button class="numPpl" id="p4" onclick="setNumPpl(4)">4人</button>
+            <button class="numPpl" id="p5" onclick="setNumPpl(5)">5人</button>
+            <button class="numPpl" id="p6" onclick="setNumPpl(6)">6人</button>
+            <button class="numPpl" id="p7" onclick="setNumPpl(7)">7人</button>
+            <button class="numPpl" id="p8" onclick="setNumPpl(8)">8人</button>
+        </div>
+        <div class="alertDialog" id="showRules" hidden>
+            <h2>游戏规则</h2>
+            <p>你所要做的是掷 5 个骰子并且得到尽可能高的分数。</p>
+            <p>每局游戏包含 12 个回合；在每一回合中，你可以掷 3 次骰子；在掷每一次骰子前，你可以锁定/解锁任意数量的骰子，锁住的骰子在这次掷骰子的过程中保持不变；掷完三次骰子后，你必须进行结算；当然，在掷完任意一次骰子后，你随时可以进行结算。</p>
+            <p>结算：根据你已有的骰子组合与下表，选择一种组合并获得对应分数。在一局游戏中，你不能选已经选过的组合，而且（大概率）不会每种组合都掷到，所以请三思而后行[doge]。</p>
+            <p>每一种不同的骰子组合代表了不同的分数：</p>
+            <table class="scoringExplanation" rules="all">
+                <tr class="th">
+                    <th>编号</th>
+                    <th>组合名称</th>
+                    <th>组合解释</th>
+                    <th>组合得分</th>
+                    <th>例子</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>一点</td>
+                    <td>掷到的所有 ⚀</td>
+                    <td>掷到的 ⚀ 的个数</td>
+                    <td>⚀⚃⚀⚅⚂ 选“一点”可得 2 分</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>二点</td>
+                    <td>掷到的所有 ⚁</td>
+                    <td>掷到的 ⚁ 的个数 * 2</td>
+                    <td>⚀⚁⚃⚁⚁ 选“二点”可得 6 分</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>三点</td>
+                    <td>掷到的所有 ⚂</td>
+                    <td>掷到的 ⚂ 的个数 * 3</td>
+                    <td>⚅⚂⚃⚁⚂ 选“三点”可得 6 分</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>四点</td>
+                    <td>掷到的所有 ⚃</td>
+                    <td>掷到的 ⚃ 的个数 * 4</td>
+                    <td>⚃⚄⚃⚃⚁ 选“四点”可得 12 分</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>五点</td>
+                    <td>掷到的所有 ⚄</td>
+                    <td>掷到的 ⚄ 的个数 * 5</td>
+                    <td>⚂⚂⚄⚄⚁ 选“五点”可得 10 分</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>六点</td>
+                    <td>掷到的所有 ⚅</td>
+                    <td>掷到的 ⚅ 的个数 * 6</td>
+                    <td>⚀⚅⚅⚅⚁ 选“六点”可得 18 分</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>全选</td>
+                    <td>掷到的所有骰子</td>
+                    <td>掷到的所有骰子的点数之和</td>
+                    <td>⚁⚄⚃⚂⚄ 选“全选”可得 19 分</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>三条</td>
+                    <td>掷到的 3 个点数相等的骰子</td>
+                    <td>掷到的所有骰子的点数之和</td>
+                    <td>⚁⚄⚄⚂⚄ 选“三条”可得 20 分</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>四条</td>
+                    <td>掷到的 4 个点数相等的骰子</td>
+                    <td>掷到的所有骰子的点数之和</td>
+                    <td>⚁⚄⚄⚄⚄ 选“四条”可得 22 分</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>葫芦</td>
+                    <td>类似于“三带二”</td>
+                    <td>掷到的所有骰子的点数之和</td>
+                    <td>⚁⚁⚄⚄⚄ 选“葫芦”可得 19 分</td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>小顺</td>
+                    <td>4 个连续点数的骰子</td>
+                    <td>15 分</td>
+                    <td>⚁⚁⚂⚃⚄ 选“小顺”可得 15 分</td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td>大顺</td>
+                    <td>5 个连续点数的骰子</td>
+                    <td>30 分</td>
+                    <td>⚀⚁⚂⚃⚄ 选“大顺”可得 30 分</td>
+                </tr>
+                <tr>
+                    <td>13</td>
+                    <td>快艇</td>
+                    <td>5 个相同点数的骰子</td>
+                    <td>50 分</td>
+                    <td>⚀⚁⚂⚃⚄ 选“快艇”可得 50 分</td>
+                </tr>
+            </table>
+            <p><b>* 特别说明：</b></p>
+            <p>编号1-6（即一点~六点）的总分称为“上部总分”，如果它不低于 63 分，则你可以获得 35 分的额外加分。</p>
+            <!--⚀⚁⚂⚃⚄⚅-->
+            <button class="buttonGoPlay" id="goPlay" onclick="goPlay()">确认并开始游戏</button>
+        </div>
+        <div class="alertDialog" id="gamePage" hidden>
+            <h1>快艇骰子 Yahtzee</h1>
+            <p>现在轮到玩家 <span id="nowNum">?</span></p>
+            <div class="btn" onclick="clickIt()" id="clickBtn">点击掷骰子</div>
+            <div class="box">
+                <div class="box1">
+                    <div class="part c1" id="11">⚀</div>
+                    <div class="part c2" id="12" hidden>⚁</div>
+                    <div class="part c3" id="13" hidden>⚂</div>
+                    <div class="part c4" id="14" hidden>⚃</div>
+                    <div class="part c5" id="15" hidden>⚄</div>
+                    <div class="part c6" id="16" hidden>⚅</div>
+                </div>
+                <div class="box1">
+                    <div class="part c1" id="21">⚀</div>
+                    <div class="part c2" id="22" hidden>⚁</div>
+                    <div class="part c3" id="23" hidden>⚂</div>
+                    <div class="part c4" id="24" hidden>⚃</div>
+                    <div class="part c5" id="25" hidden>⚄</div>
+                    <div class="part c6" id="26" hidden>⚅</div>
+                </div>
+                <div class="box1">
+                    <div class="part c1" id="31">⚀</div>
+                    <div class="part c2" id="32" hidden>⚁</div>
+                    <div class="part c3" id="33" hidden>⚂</div>
+                    <div class="part c4" id="34" hidden>⚃</div>
+                    <div class="part c5" id="35" hidden>⚄</div>
+                    <div class="part c6" id="36" hidden>⚅</div>
+                </div>
+                <div class="box1">
+                    <div class="part c1" id="41">⚀</div>
+                    <div class="part c2" id="42" hidden>⚁</div>
+                    <div class="part c3" id="43" hidden>⚂</div>
+                    <div class="part c4" id="44" hidden>⚃</div>
+                    <div class="part c5" id="45" hidden>⚄</div>
+                    <div class="part c6" id="46" hidden>⚅</div>
+                </div>
+                <div class="box1">
+                    <div class="part c1" id="51">⚀</div>
+                    <div class="part c2" id="52" hidden>⚁</div>
+                    <div class="part c3" id="53" hidden>⚂</div>
+                    <div class="part c4" id="54" hidden>⚃</div>
+                    <div class="part c5" id="55" hidden>⚄</div>
+                    <div class="part c6" id="56" hidden>⚅</div>
+                </div>
+            </div>
+            <div class="box2">
+                <button id="lock1" onclick="lock(1)">锁定此骰子</button>
+                &ensp;
+                <button id="lock2" onclick="lock(2)">锁定此骰子</button>
+                &ensp;
+                <button id="lock3" onclick="lock(3)">锁定此骰子</button>
+                &ensp;
+                <button id="lock4" onclick="lock(4)">锁定此骰子</button>
+                &ensp;
+                <button id="lock5" onclick="lock(5)">锁定此骰子</button>
+            </div>
+            <table class="scoringTable" rules="all" cellpadding="3">
+                <tr>
+                    <th>组合</th>
+                    <th class="pl1">玩家 1</th>
+                    <th class="pl2">玩家 2</th>
+                    <th class="pl3">玩家 3</th>
+                    <th class="pl4">玩家 4</th>
+                    <th class="pl5">玩家 5</th>
+                    <th class="pl6">玩家 6</th>
+                    <th class="pl7">玩家 7</th>
+                    <th class="pl8">玩家 8</th>
+                </tr>
+                <tr>
+                    <td>一点</td>
+                    <td class="pl1"><button class="score" id="pl1_1" onclick="choose(1)">#</button></td>
+                    <td class="pl2"><button class="score" id="pl2_1" onclick="choose(1)">#</button></td>
+                    <td class="pl3"><button class="score" id="pl3_1" onclick="choose(1)">#</button></td>
+                    <td class="pl4"><button class="score" id="pl4_1" onclick="choose(1)">#</button></td>
+                    <td class="pl5"><button class="score" id="pl5_1" onclick="choose(1)">#</button></td>
+                    <td class="pl6"><button class="score" id="pl6_1" onclick="choose(1)">#</button></td>
+                    <td class="pl7"><button class="score" id="pl7_1" onclick="choose(1)">#</button></td>
+                    <td class="pl8"><button class="score" id="pl8_1" onclick="choose(1)">#</button></td>
+                </tr>
+                <tr>
+                    <td>二点</td>
+                    <td class="pl1"><button class="score" id="pl1_2" onclick="choose(2)">#</button></td>
+                    <td class="pl2"><button class="score" id="pl2_2" onclick="choose(2)">#</button></td>
+                    <td class="pl3"><button class="score" id="pl3_2" onclick="choose(2)">#</button></td>
+                    <td class="pl4"><button class="score" id="pl4_2" onclick="choose(2)">#</button></td>
+                    <td class="pl5"><button class="score" id="pl5_2" onclick="choose(2)">#</button></td>
+                    <td class="pl6"><button class="score" id="pl6_2" onclick="choose(2)">#</button></td>
+                    <td class="pl7"><button class="score" id="pl7_2" onclick="choose(2)">#</button></td>
+                    <td class="pl8"><button class="score" id="pl8_2" onclick="choose(2)">#</button></td>
+                </tr>
+                <tr>
+                    <td>三点</td>
+                    <td class="pl1"><button class="score" id="pl1_3" onclick="choose(3)">#</button></td>
+                    <td class="pl2"><button class="score" id="pl2_3" onclick="choose(3)">#</button></td>
+                    <td class="pl3"><button class="score" id="pl3_3" onclick="choose(3)">#</button></td>
+                    <td class="pl4"><button class="score" id="pl4_3" onclick="choose(3)">#</button></td>
+                    <td class="pl5"><button class="score" id="pl5_3" onclick="choose(3)">#</button></td>
+                    <td class="pl6"><button class="score" id="pl6_3" onclick="choose(3)">#</button></td>
+                    <td class="pl7"><button class="score" id="pl7_3" onclick="choose(3)">#</button></td>
+                    <td class="pl8"><button class="score" id="pl8_3" onclick="choose(3)">#</button></td>
+                </tr>
+                <tr>
+                    <td>四点</td>
+                    <td class="pl1"><button class="score" id="pl1_4" onclick="choose(4)">#</button></td>
+                    <td class="pl2"><button class="score" id="pl2_4" onclick="choose(4)">#</button></td>
+                    <td class="pl3"><button class="score" id="pl3_4" onclick="choose(4)">#</button></td>
+                    <td class="pl4"><button class="score" id="pl4_4" onclick="choose(4)">#</button></td>
+                    <td class="pl5"><button class="score" id="pl5_4" onclick="choose(4)">#</button></td>
+                    <td class="pl6"><button class="score" id="pl6_4" onclick="choose(4)">#</button></td>
+                    <td class="pl7"><button class="score" id="pl7_4" onclick="choose(4)">#</button></td>
+                    <td class="pl8"><button class="score" id="pl8_4" onclick="choose(4)">#</button></td>
+                </tr>
+                <tr>
+                    <td>五点</td>
+                    <td class="pl1"><button class="score" id="pl1_5" onclick="choose(5)">#</button></td>
+                    <td class="pl2"><button class="score" id="pl2_5" onclick="choose(5)">#</button></td>
+                    <td class="pl3"><button class="score" id="pl3_5" onclick="choose(5)">#</button></td>
+                    <td class="pl4"><button class="score" id="pl4_5" onclick="choose(5)">#</button></td>
+                    <td class="pl5"><button class="score" id="pl5_5" onclick="choose(5)">#</button></td>
+                    <td class="pl6"><button class="score" id="pl6_5" onclick="choose(5)">#</button></td>
+                    <td class="pl7"><button class="score" id="pl7_5" onclick="choose(5)">#</button></td>
+                    <td class="pl8"><button class="score" id="pl8_5" onclick="choose(5)">#</button></td>                </tr>
+                <tr>
+                    <td>六点</td>
+                    <td class="pl1"><button class="score" id="pl1_6" onclick="choose(6)">#</button></td>
+                    <td class="pl2"><button class="score" id="pl2_6" onclick="choose(6)">#</button></td>
+                    <td class="pl3"><button class="score" id="pl3_6" onclick="choose(6)">#</button></td>
+                    <td class="pl4"><button class="score" id="pl4_6" onclick="choose(6)">#</button></td>
+                    <td class="pl5"><button class="score" id="pl5_6" onclick="choose(6)">#</button></td>
+                    <td class="pl6"><button class="score" id="pl6_6" onclick="choose(6)">#</button></td>
+                    <td class="pl7"><button class="score" id="pl7_6" onclick="choose(6)">#</button></td>
+                    <td class="pl8"><button class="score" id="pl8_6" onclick="choose(6)">#</button></td>                </tr>
+                <tr>
+                    <td><b>1-6总计</b></td>
+                    <td class="pl1" id="pl1_i">#</td>
+                    <td class="pl2" id="pl2_i">#</td>
+                    <td class="pl3" id="pl3_i">#</td>
+                    <td class="pl4" id="pl4_i">#</td>
+                    <td class="pl5" id="pl5_i">#</td>
+                    <td class="pl6" id="pl6_i">#</td>
+                    <td class="pl7" id="pl7_i">#</td>
+                    <td class="pl8" id="pl8_i">#</td>
+                </tr>
+                <tr>
+                    <td><b>加分</b></td>
+                    <td class="pl1" id="pl1_ex">#</td>
+                    <td class="pl2" id="pl2_ex">#</td>
+                    <td class="pl3" id="pl3_ex">#</td>
+                    <td class="pl4" id="pl4_ex">#</td>
+                    <td class="pl5" id="pl5_ex">#</td>
+                    <td class="pl6" id="pl6_ex">#</td>
+                    <td class="pl7" id="pl7_ex">#</td>
+                    <td class="pl8" id="pl8_ex">#</td>
+                </tr>
+                <tr>
+                    <td><b>上部总分</b></td>
+                    <td class="pl1" id="pl1_a">#</td>
+                    <td class="pl2" id="pl2_a">#</td>
+                    <td class="pl3" id="pl3_a">#</td>
+                    <td class="pl4" id="pl4_a">#</td>
+                    <td class="pl5" id="pl5_a">#</td>
+                    <td class="pl6" id="pl6_a">#</td>
+                    <td class="pl7" id="pl7_a">#</td>
+                    <td class="pl8" id="pl8_a">#</td>
+                </tr>
+                <tr>
+                    <td>全选</td>
+                    <td class="pl1"><button class="score" id="pl1_7" onclick="choose(7)">#</button></td>
+                    <td class="pl2"><button class="score" id="pl2_7" onclick="choose(7)">#</button></td>
+                    <td class="pl3"><button class="score" id="pl3_7" onclick="choose(7)">#</button></td>
+                    <td class="pl4"><button class="score" id="pl4_7" onclick="choose(7)">#</button></td>
+                    <td class="pl5"><button class="score" id="pl5_7" onclick="choose(7)">#</button></td>
+                    <td class="pl6"><button class="score" id="pl6_7" onclick="choose(7)">#</button></td>
+                    <td class="pl7"><button class="score" id="pl7_7" onclick="choose(7)">#</button></td>
+                    <td class="pl8"><button class="score" id="pl8_7" onclick="choose(7)">#</button></td>                </tr>
+                <tr>
+                    <td>三条</td>
+                    <td class="pl1"><button class="score" id="pl1_8" onclick="choose(8)">#</button></td>
+                    <td class="pl2"><button class="score" id="pl2_8" onclick="choose(8)">#</button></td>
+                    <td class="pl3"><button class="score" id="pl3_8" onclick="choose(8)">#</button></td>
+                    <td class="pl4"><button class="score" id="pl4_8" onclick="choose(8)">#</button></td>
+                    <td class="pl5"><button class="score" id="pl5_8" onclick="choose(8)">#</button></td>
+                    <td class="pl6"><button class="score" id="pl6_8" onclick="choose(8)">#</button></td>
+                    <td class="pl7"><button class="score" id="pl7_8" onclick="choose(8)">#</button></td>
+                    <td class="pl8"><button class="score" id="pl8_8" onclick="choose(8)">#</button></td>                </tr>
+                <tr>
+                    <td>四条</td>
+                    <td class="pl1"><button class="score" id="pl1_9" onclick="choose(9)">#</button></td>
+                    <td class="pl2"><button class="score" id="pl2_9" onclick="choose(9)">#</button></td>
+                    <td class="pl3"><button class="score" id="pl3_9" onclick="choose(9)">#</button></td>
+                    <td class="pl4"><button class="score" id="pl4_9" onclick="choose(9)">#</button></td>
+                    <td class="pl5"><button class="score" id="pl5_9" onclick="choose(9)">#</button></td>
+                    <td class="pl6"><button class="score" id="pl6_9" onclick="choose(9)">#</button></td>
+                    <td class="pl7"><button class="score" id="pl7_9" onclick="choose(9)">#</button></td>
+                    <td class="pl8"><button class="score" id="pl8_9" onclick="choose(9)">#</button></td>                </tr>
+                <tr>
+                    <td>葫芦</td>
+                    <td class="pl1"><button class="score" id="pl1_10" onclick="choose(10)">#</button></td>
+                    <td class="pl2"><button class="score" id="pl2_10" onclick="choose(10)">#</button></td>
+                    <td class="pl3"><button class="score" id="pl3_10" onclick="choose(10)">#</button></td>
+                    <td class="pl4"><button class="score" id="pl4_10" onclick="choose(10)">#</button></td>
+                    <td class="pl5"><button class="score" id="pl5_10" onclick="choose(10)">#</button></td>
+                    <td class="pl6"><button class="score" id="pl6_10" onclick="choose(10)">#</button></td>
+                    <td class="pl7"><button class="score" id="pl7_10" onclick="choose(10)">#</button></td>
+                    <td class="pl8"><button class="score" id="pl8_10" onclick="choose(10)">#</button></td>                </tr>
+                <tr>
+                    <td>小顺</td>
+                    <td class="pl1"><button class="score" id="pl1_11" onclick="choose(11)">#</button></td>
+                    <td class="pl2"><button class="score" id="pl2_11" onclick="choose(11)">#</button></td>
+                    <td class="pl3"><button class="score" id="pl3_11" onclick="choose(11)">#</button></td>
+                    <td class="pl4"><button class="score" id="pl4_11" onclick="choose(11)">#</button></td>
+                    <td class="pl5"><button class="score" id="pl5_11" onclick="choose(11)">#</button></td>
+                    <td class="pl6"><button class="score" id="pl6_11" onclick="choose(11)">#</button></td>
+                    <td class="pl7"><button class="score" id="pl7_11" onclick="choose(11)">#</button></td>
+                    <td class="pl8"><button class="score" id="pl8_11" onclick="choose(11)">#</button></td>                </tr>
+                <tr>
+                    <td>大顺</td>
+                    <td class="pl1"><button class="score" id="pl1_12" onclick="choose(12)">#</button></td>
+                    <td class="pl2"><button class="score" id="pl2_12" onclick="choose(12)">#</button></td>
+                    <td class="pl3"><button class="score" id="pl3_12" onclick="choose(12)">#</button></td>
+                    <td class="pl4"><button class="score" id="pl4_12" onclick="choose(12)">#</button></td>
+                    <td class="pl5"><button class="score" id="pl5_12" onclick="choose(12)">#</button></td>
+                    <td class="pl6"><button class="score" id="pl6_12" onclick="choose(12)">#</button></td>
+                    <td class="pl7"><button class="score" id="pl7_12" onclick="choose(12)">#</button></td>
+                    <td class="pl8"><button class="score" id="pl8_12" onclick="choose(12)">#</button></td>                </tr>
+                <tr>
+                    <td>快艇</td>
+                    <td class="pl1"><button class="score" id="pl1_13" onclick="choose(13)">#</button></td>
+                    <td class="pl2"><button class="score" id="pl2_13" onclick="choose(13)">#</button></td>
+                    <td class="pl3"><button class="score" id="pl3_13" onclick="choose(13)">#</button></td>
+                    <td class="pl4"><button class="score" id="pl4_13" onclick="choose(13)">#</button></td>
+                    <td class="pl5"><button class="score" id="pl5_13" onclick="choose(13)">#</button></td>
+                    <td class="pl6"><button class="score" id="pl6_13" onclick="choose(13)">#</button></td>
+                    <td class="pl7"><button class="score" id="pl7_13" onclick="choose(13)">#</button></td>
+                    <td class="pl8"><button class="score" id="pl8_13" onclick="choose(13)">#</button></td>                </tr>
+                <tr>
+                    <td><b>下部总分</b></td>
+                    <td class="pl1" id="pl1_b">#</td>
+                    <td class="pl2" id="pl2_b">#</td>
+                    <td class="pl3" id="pl3_b">#</td>
+                    <td class="pl4" id="pl4_b">#</td>
+                    <td class="pl5" id="pl5_b">#</td>
+                    <td class="pl6" id="pl6_b">#</td>
+                    <td class="pl7" id="pl7_b">#</td>
+                    <td class="pl8" id="pl8_b">#</td>
+                </tr>
+                <tr>
+                    <td><b>Final</b></td>
+                    <td class="pl1 tot" id="pl1_t">#</td>
+                    <td class="pl2 tot" id="pl2_t">#</td>
+                    <td class="pl3 tot" id="pl3_t">#</td>
+                    <td class="pl4 tot" id="pl4_t">#</td>
+                    <td class="pl5 tot" id="pl5_t">#</td>
+                    <td class="pl6 tot" id="pl6_t">#</td>
+                    <td class="pl7 tot" id="pl7_t">#</td>
+                    <td class="pl8 tot" id="pl8_t">#</td>
+                </tr>
+            </table>
+        </div>
+        <div class="alertDialog" id="gameResult" hidden>
+            <h2>游戏结束！</h2>
+            <table class="scoringTable">
+                <tr>
+                    <th>玩家</th>
+                    <th class="pl1">玩家 1</th>
+                    <th class="pl2">玩家 2</th>
+                    <th class="pl3">玩家 3</th>
+                    <th class="pl4">玩家 4</th>
+                    <th class="pl5">玩家 5</th>
+                    <th class="pl6">玩家 6</th>
+                    <th class="pl7">玩家 7</th>
+                    <th class="pl8">玩家 8</th>
+                </tr>
+                <tr>
+                    <th>Final</th>
+                    <th class="pl1" id="res1">-</th>
+                    <th class="pl2" id="res2">-</th>
+                    <th class="pl3" id="res3">-</th>
+                    <th class="pl4" id="res4">-</th>
+                    <th class="pl5" id="res5">-</th>
+                    <th class="pl6" id="res6">-</th>
+                    <th class="pl7" id="res7">-</th>
+                    <th class="pl8" id="res8">-</th>
+                </tr>
+            </table>
+            <button class="buttonBack" onclick="goSetNumPpl()">再来一局</button>
+            <button class="buttonBack" onclick="homePage()">返回首页</button>
+        </div>
+        <div class="debug" hidden>
+            Debug:<br>
+            numPpl=<span id="showNumPpl">#undefined</span>
+        </div>
+    </body>
+    <script>
+        //var interval=null;
+        var numPpl;
+        var nowNum=0;
+        //var plScore=[0,0,0,0,0,0,0,0];
+        var locked=[0,0,0,0,0];
+        var leftCh=3;
+        var dice=[-1,-1,-1,-1,-1];
+        var numCnt=[0,0,0,0,0,0];
+        var plLockedScore=[[-1,-1,-1,-1,-1,-1,0,0,0,-1,-1,-1,-1,-1,-1,-1,0,0],[-1,-1,-1,-1,-1,-1,0,0,0,-1,-1,-1,-1,-1,-1,-1,0,0],[-1,-1,-1,-1,-1,-1,0,0,0,-1,-1,-1,-1,-1,-1,-1,0,0],[-1,-1,-1,-1,-1,-1,0,0,0,-1,-1,-1,-1,-1,-1,-1,0,0],[-1,-1,-1,-1,-1,-1,0,0,0,-1,-1,-1,-1,-1,-1,-1,0,0],[-1,-1,-1,-1,-1,-1,0,0,0,-1,-1,-1,-1,-1,-1,-1,0,0],[-1,-1,-1,-1,-1,-1,0,0,0,-1,-1,-1,-1,-1,-1,-1,0,0],[-1,-1,-1,-1,-1,-1,0,0,0,-1,-1,-1,-1,-1,-1,-1,0,0]];
+        var plPossScore=[[-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1],[-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1],[-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1],[-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1],[-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1],[-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1],[-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1],[-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1]];
+        var gameCnt=0;
+        gamePlay();
+        function rotate(n)
+        {
+            for(var i=1;i<=6;i++)
+                if(i!=n%10)
+                    document.getElementById(Math.floor(n/10)*10+i).hidden=true;
+                else
+                    document.getElementById(n).hidden=false;
+        }
+        function clickIt() {
+            var n;
+            if(leftCh==0)
+            {
+                alert("你的机会已用完，请选择一种组合！");
+                return;
+            }
+            leftCh--;
+            document.getElementById("clickBtn").innerHTML="点击掷骰子<br>剩余 "+leftCh+" 次";
+            for(var i=1; i<=10; i++)
+            {
+                for(var j=1; j<=5; j++)
+                {
+                    if(locked[j-1]==0)
+                    {
+                        n=Math.floor(Math.random()*6+1);
+                        setTimeout(rotate,100*i,10*j+n);
+                        dice[j-1]=n;
+                        console.log(n);
+                    }
+                }
+            }
+            console.log("dice[]:"+dice);
+            calcPossScore();
+        }
+        function about()
+        {
+            document.getElementById("about").hidden=false;
+        }
+        function quitAbout()
+        {
+            document.getElementById("about").hidden=true;
+        }
+        function setNumPpl(n)
+        {
+            numPpl=n;
+            console.log("numPpl="+numPpl);
+            document.getElementById("showNumPpl").innerText=numPpl;
+            document.getElementById("chooseNum").hidden=true;
+            document.getElementById("showRules").hidden=false;
+        }
+        function goSetNumPpl()
+        {
+            document.getElementById("gamePage").hidden=true;
+            document.getElementById("gameResult").hidden=true;
+            document.getElementById("chooseNum").hidden=false;
+        }
+        function goPlay(){
+            document.getElementById("showRules").hidden=true;
+            document.getElementById("gamePage").hidden=false;
+            gamePlay();
+        }
+        function hideExtraPlayers()
+        {
+            for(var i=numPpl+1; i<=8; i++)
+            {
+                var x=document.getElementsByClassName("pl"+i);
+                for(var j=0; j<x.length; j++)
+                    x[j].hidden=true;
+            }
+        }
+        function initializePlScore()
+        {
+            plLockedScore=[[-1,-1,-1,-1,-1,-1,0,0,0,-1,-1,-1,-1,-1,-1,-1,0,0],[-1,-1,-1,-1,-1,-1,0,0,0,-1,-1,-1,-1,-1,-1,-1,0,0],[-1,-1,-1,-1,-1,-1,0,0,0,-1,-1,-1,-1,-1,-1,-1,0,0],[-1,-1,-1,-1,-1,-1,0,0,0,-1,-1,-1,-1,-1,-1,-1,0,0],[-1,-1,-1,-1,-1,-1,0,0,0,-1,-1,-1,-1,-1,-1,-1,0,0],[-1,-1,-1,-1,-1,-1,0,0,0,-1,-1,-1,-1,-1,-1,-1,0,0],[-1,-1,-1,-1,-1,-1,0,0,0,-1,-1,-1,-1,-1,-1,-1,0,0],[-1,-1,-1,-1,-1,-1,0,0,0,-1,-1,-1,-1,-1,-1,-1,0,0]];
+            plPossScore=[[-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1],[-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1],[-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1],[-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1],[-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1],[-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1],[-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1],[-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1]];
+            gameCnt=0;
+        }
+        function clearWinnerColor()
+        {
+            for(var i=0; i<8; i++)
+            {
+                y=document.getElementsByClassName("pl"+(i+1));
+                for(var j=0; j<y.length; j++)
+                    y[j].classList.remove("winner");
+            }
+        }
+        function initializeTable()
+        {
+            var idName=['1','2','3','4','5','6','i','ex','a','7','8','9','10','11','12','13','b','t'];
+            for(var i=0; i<8; i++)
+                for(var j=0; j<18; j++)
+                    document.getElementById("pl"+(i+1)+"_"+idName[j]).innerHTML="#";
+        }
+        function gamePlay()
+        {
+            hideExtraPlayers();
+            initializePlScore();
+            clearWinnerColor();
+            initializeTable();
+            nowNum=-1;
+            nextPlayer();
+        }
+        function lock(n)
+        {
+            if(leftCh==3)
+            {
+                alert("你现在不能锁定骰子！");
+                return;
+            }
+            console.log("lock("+n+"),locked["+(n-1)+"]="+locked[n-1]);
+            if(locked[n-1]==1)
+            {
+                locked[n-1]=0;
+                document.getElementById("lock"+n).innerHTML="锁定此骰子";
+            }
+            else
+            {
+                locked[n-1]=1;
+                document.getElementById("lock"+n).innerHTML="<b>解锁此骰子</b>";
+            }
+            console.log("locked["+(n-1)+"]="+locked[n-1]);
+        }
+        function choose(c)
+        {
+            //console.log(c+','+(c-1+(c>6?3:0)));
+            if(plLockedScore[nowNum][c-1+(c>6?3:0)]!=-1)
+            {
+                alert("该组合已选过！请重新选择！");
+                return;
+            }
+            if(leftCh==3)
+            {
+                alert("还没掷骰子呢！别急！");
+                return;
+            }
+            plLockedScore[nowNum][c-1+(c>6?3:0)]=plPossScore[nowNum][c-1+(c>6?3:0)];
+            document.getElementById("pl"+(nowNum+1)+"_"+(c)).innerHTML="<b>"+plLockedScore[nowNum][c-1+(c>6?3:0)]+"</b>";
+            plLockedScore[nowNum][6]=0;
+            for(var i=0; i<6; i++)
+                plLockedScore[nowNum][6]+=((plLockedScore[nowNum][i]==-1)?0:plLockedScore[nowNum][i]);
+            if(plLockedScore[nowNum][6]>=63) plLockedScore[nowNum][7]=35;
+            plLockedScore[nowNum][8]=plLockedScore[nowNum][6]+plLockedScore[nowNum][7];
+            plLockedScore[nowNum][16]=0;
+            for(var i=9; i<=15; i++)
+                plLockedScore[nowNum][16]+=(plLockedScore[nowNum][i]==-1?0:plLockedScore[nowNum][i]);
+            plLockedScore[nowNum][17]=plLockedScore[nowNum][8]+plLockedScore[nowNum][16];
+            document.getElementById("pl"+(nowNum+1)+"_i").innerHTML="<b>"+plLockedScore[nowNum][6]+"</b>";
+            document.getElementById("pl"+(nowNum+1)+"_ex").innerHTML="<b>"+plLockedScore[nowNum][7]+"</b>";
+            document.getElementById("pl"+(nowNum+1)+"_a").innerHTML="<b>"+plLockedScore[nowNum][8]+"</b>";
+            document.getElementById("pl"+(nowNum+1)+"_b").innerHTML="<b>"+plLockedScore[nowNum][16]+"</b>";
+            document.getElementById("pl"+(nowNum+1)+"_t").innerHTML="<b>"+plLockedScore[nowNum][17]+"</b>";
+            for(var i=1; i<=13; i++)
+                if(plLockedScore[nowNum][i-1+(i>6?3:0)]==-1)
+                    document.getElementById("pl"+(nowNum+1)+"_"+(i)).innerHTML="-";
+            nextPlayer();
+        }
+        function calcPossScore()
+        {
+            numCnt=[0,0,0,0,0,0];
+            for(var i=0; i<5; i++)
+                numCnt[dice[i]-1]++;
+            console.log(numCnt);
+
+            // 一点-六点
+            for(var i=0; i<6; i++)
+                plPossScore[nowNum][i]=numCnt[i]*(i+1);
+
+            // 全选
+            plPossScore[nowNum][9]=plPossScore[nowNum][0]+plPossScore[nowNum][1]+plPossScore[nowNum][2]+plPossScore[nowNum][3]+plPossScore[nowNum][4]+plPossScore[nowNum][5];
+            var idName=['1','2','3','4','5','6','i','ex','a','7','8','9','10','11','12','13','b','t'];
+            
+            // 三条
+            var max3=0;
+            for(var i=0; i<6; i++)
+                if(numCnt[i]>=3)
+                    max3=(i+1)*3;//,console.log("max3="+max3+",dice[i]="+dice[i]);
+            if(max3>0) plPossScore[nowNum][10]=plPossScore[nowNum][9];
+            else plPossScore[nowNum][10]=0;
+
+            // 四条
+            var max4=0;
+            for(var i=0; i<6; i++)
+                if(numCnt[i]>=4)
+                    max4=(i+1)*4;
+            if(max4>0) plPossScore[nowNum][11]=plPossScore[nowNum][9];
+            else plPossScore[nowNum][11]=0;
+
+            //葫芦
+            var max32_3=0,max32_2=0;
+            for(var i=0; i<6; i++)
+            {
+                if(numCnt[i]==3)
+                    max32_3=(i+1)*3;
+                if(numCnt[i]==2)
+                    max32_2=(i+1)*2;
+            }
+            if(max32_3!=0 && max32_2!=0)
+                plPossScore[nowNum][12]=max32_2+max32_3;
+            else
+                plPossScore[nowNum][12]=0;
+
+            //小顺
+            if((numCnt[0]>=1 && numCnt[1]>=1 &&numCnt[2]>=1 &&numCnt[3]>=1) || (numCnt[1]>=1 && numCnt[2]>=1 &&numCnt[3]>=1 &&numCnt[4]>=1) || (numCnt[2]>=1 && numCnt[3]>=1 &&numCnt[4]>=1 &&numCnt[5]>=1))
+                plPossScore[nowNum][13]=15;
+            else
+                plPossScore[nowNum][13]=0;
+
+            //大顺
+            if((numCnt[0]==1 && numCnt[1]==1 && numCnt[2]==1 && numCnt[3]==1 && numCnt[4]==1) || (numCnt[1]==1 && numCnt[2]==1 && numCnt[3]==1 && numCnt[4]==1 && numCnt[5]==1))
+                plPossScore[nowNum][14]=30;
+            else
+                plPossScore[nowNum][14]=0;
+            
+            //快艇
+            if(numCnt[0]==5 || numCnt[1]==5 || numCnt[2]==5 || numCnt[3]==5 || numCnt[4]==5 || numCnt[5]==5)
+                plPossScore[nowNum][15]=50;
+            else
+                plPossScore[nowNum][15]=0;
+            
+            //for(var pl=0; pl<numPpl; pl++)
+            for(var i=0; i<18; i++)
+                if(plLockedScore[nowNum][i]==-1)
+                    document.getElementById("pl"+(nowNum+1)+"_"+idName[i]).innerHTML=plPossScore[nowNum][i];
+                else
+                document.getElementById("pl"+(nowNum+1)+"_"+idName[i]).innerHTML="<b>"+plLockedScore[nowNum][i]+"</b>";
+            }
+        function nextPlayer()
+        {
+            if(gameCnt==13*numPpl)
+            {
+                gameEnd();
+                return;
+            }
+            gameCnt++;
+            var x=document.getElementsByClassName("pl"+(nowNum+1));
+            for(var i=0; i<x.length; i++)
+                x[i].classList.remove("highlightPlayer");
+            nowNum++,nowNum%=numPpl;
+            x=document.getElementsByClassName("pl"+(nowNum+1));
+            for(var i=0; i<x.length; i++)
+                x[i].classList.add("highlightPlayer");
+            document.getElementById("nowNum").innerHTML=nowNum+1;
+            leftCh=3;
+            document.getElementById("clickBtn").innerHTML="点击掷骰子 剩余 "+leftCh+" 次";
+            locked=[0,0,0,0,0];
+            for(var i=0; i<5; i++)
+                document.getElementById("lock"+(i+1)).innerHTML="锁定此骰子";
+        }
+        function gameEnd()
+        {
+            document.getElementById("gameResult").hidden=false;
+            for(var i=0; i<8; i++) document.getElementById("res"+(i+1)).innerHTML=plLockedScore[i][17];
+            var maxSc=-1;
+            for(var i=0; i<8; i++) if(plLockedScore[i][17]>maxSc) maxSc=plLockedScore[i][17]
+            var maxPl=[],maxPlCnt=0;
+            for(var i=0; i<8; i++) if(plLockedScore[i][17]==maxSc) maxPl[maxPlCnt++]=i+1;
+            var x=document.getElementsByClassName("pl"+(nowNum+1));
+            for(var i=0; i<x.length; i++)
+                x[i].classList.remove("highlightPlayer");
+            var y;
+            for(var i=0; i<maxPlCnt; i++)
+            {
+                y=document.getElementsByClassName("pl"+maxPl[i]);
+                for(var j=0; j<y.length; j++)
+                    y[j].classList.add("winner");
+            }
+        }
+        function homePage()
+        {
+            document.getElementById("gamePage").hidden=true;
+            document.getElementById("gameResult").hidden=true;
+        }
+    </script>
+</html>
+<!--⚀⚁⚂⚃⚄⚅-->
+        <!--<div id="myDiv" style="width: 100px; height: 100px; background:red;"></div>-->
+        <!--
+        <div class="btn" onclick="clickIt()">点击掷骰子</div>
+        -->
+        <!--
+        <div class="box">
+            <div class="part c1" id="1">⚀</div>
+            <div class="part c2" id="2" hidden>⚁</div>
+            <div class="part c3" id="3" hidden>⚂</div>
+            <div class="part c4" id="4" hidden>⚃</div>
+            <div class="part c5" id="5" hidden>⚄</div>
+            <div class="part c6" id="6" hidden>⚅</div>
+        </div>
+        -->

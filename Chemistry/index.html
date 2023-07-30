@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<head lang="zh-cn">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <title>Robinlee19's Site</title>
+
+    <!--Layui 链接库-->
+    <link rel="stylesheet" href="../layui/css/layui.css">
+    <link rel="stylesheet" href="../layer/theme/default/layer.css">
+    <script src="../layui/layui.js"></script>
+    <script src="../layer/layer.js"></script>
+    <script src="./ddr.js"></script>
+    
+    <script type="text/javascript">
+        layui.config({
+            version: false,
+            debug: false
+        });
+        layui.use(function(){
+            var layer=layui.layer,laydate=layui.laydate,table=layui.table;
+        });
+        console.log("欢迎访问 Robinlee19's Site!");
+        console.log("当前操作系统: "+layui.device().os);
+        console.log("当前是否为移动环境: "+layui.device().mobile);
+        layui.hint().error("测试错误输出...");
+    </script>
+</head>
+<body>
+    <h1 class="Gb">复分解反应练习</h1>
+    <div id="problem">
+        <span style="font-size: 36px;" id="prob">Problem is loading...</span>
+    </div>
+    <footer>
+        <div class="ftr">
+            <span><a href="../index.html">Homepage</a></span> |
+            <span><a href="../feedback.html">Feedback</a></span> |
+            <span><a href="mailto:Robinlee19@yandex.com">Contact us</a></span>
+            <br>
+            <span>Copyright © Robinlee19</span>
+        </div>
+    </footer>
+</body>
