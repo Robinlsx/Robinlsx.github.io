@@ -21,11 +21,11 @@
         <div class="alertDialog" id="chooseNum" hidden>
             <h2>请选择游玩人数</h2>
             <button class="numPpl" id="p1" onclick="setNumPpl(1)">1人</button>
-            <button class="numPpl" id="p2" onclick="setNumPpl(2)">2人</button>
+            <button class="numPpl" id="p2" onclick="setNumPpl(2)">2人</button><br>
             <button class="numPpl" id="p3" onclick="setNumPpl(3)">3人</button>
-            <button class="numPpl" id="p4" onclick="setNumPpl(4)">4人</button>
+            <button class="numPpl" id="p4" onclick="setNumPpl(4)">4人</button><br>
             <button class="numPpl" id="p5" onclick="setNumPpl(5)">5人</button>
-            <button class="numPpl" id="p6" onclick="setNumPpl(6)">6人</button>
+            <button class="numPpl" id="p6" onclick="setNumPpl(6)">6人</button><br>
             <button class="numPpl" id="p7" onclick="setNumPpl(7)">7人</button>
             <button class="numPpl" id="p8" onclick="setNumPpl(8)">8人</button>
         </div>
@@ -35,7 +35,7 @@
             <p>每局游戏包含 12 个回合；在每一回合中，你可以掷 3 次骰子；在掷每一次骰子前，你可以锁定/解锁任意数量的骰子，锁住的骰子在这次掷骰子的过程中保持不变；掷完三次骰子后，你必须进行结算；当然，在掷完任意一次骰子后，你随时可以进行结算。</p>
             <p>结算：根据你已有的骰子组合与下表，选择一种组合并获得对应分数。在一局游戏中，你不能选已经选过的组合，而且（大概率）不会每种组合都掷到，所以请三思而后行[doge]。</p>
             <p>每一种不同的骰子组合代表了不同的分数：</p>
-            <table class="scoringExplanation" rules="all">
+            <table class="scoringExplanation" rules="all" cellpadding="2">
                 <tr class="th">
                     <th>编号</th>
                     <th>组合名称</th>
@@ -48,91 +48,91 @@
                     <td>一点</td>
                     <td>掷到的所有 ⚀</td>
                     <td>掷到的 ⚀ 的个数</td>
-                    <td>⚀⚃⚀⚅⚂ 选“一点”可得 2 分</td>
+                    <td><span class="highlightWord">⚀</span>⚃<span class="highlightWord">⚀</span>⚅⚂ 选“一点”可得 2 分</td>
                 </tr>
                 <tr>
                     <td>2</td>
                     <td>二点</td>
                     <td>掷到的所有 ⚁</td>
                     <td>掷到的 ⚁ 的个数 * 2</td>
-                    <td>⚀⚁⚃⚁⚁ 选“二点”可得 6 分</td>
+                    <td>⚀<span class="highlightWord">⚁</span>⚃<span class="highlightWord">⚁⚁</span> 选“二点”可得 6 分</td>
                 </tr>
                 <tr>
                     <td>3</td>
                     <td>三点</td>
                     <td>掷到的所有 ⚂</td>
                     <td>掷到的 ⚂ 的个数 * 3</td>
-                    <td>⚅⚂⚃⚁⚂ 选“三点”可得 6 分</td>
+                    <td>⚅<span class="highlightWord">⚂</span>⚃⚁<span class="highlightWord">⚂</span> 选“三点”可得 6 分</td>
                 </tr>
                 <tr>
                     <td>4</td>
                     <td>四点</td>
                     <td>掷到的所有 ⚃</td>
                     <td>掷到的 ⚃ 的个数 * 4</td>
-                    <td>⚃⚄⚃⚃⚁ 选“四点”可得 12 分</td>
+                    <td><span class="highlightWord">⚃</span>⚄<span class="highlightWord">⚃⚃</span>⚁ 选“四点”可得 12 分</td>
                 </tr>
                 <tr>
                     <td>5</td>
                     <td>五点</td>
                     <td>掷到的所有 ⚄</td>
                     <td>掷到的 ⚄ 的个数 * 5</td>
-                    <td>⚂⚂⚄⚄⚁ 选“五点”可得 10 分</td>
+                    <td>⚂⚂<span class="highlightWord">⚄⚄</span>⚁ 选“五点”可得 10 分</td>
                 </tr>
                 <tr>
                     <td>6</td>
                     <td>六点</td>
                     <td>掷到的所有 ⚅</td>
                     <td>掷到的 ⚅ 的个数 * 6</td>
-                    <td>⚀⚅⚅⚅⚁ 选“六点”可得 18 分</td>
+                    <td>⚀<span class="highlightWord">⚅⚅⚅</span>⚁ 选“六点”可得 18 分</td>
                 </tr>
                 <tr>
                     <td>7</td>
                     <td>全选</td>
                     <td>掷到的所有骰子</td>
                     <td>掷到的所有骰子的点数之和</td>
-                    <td>⚁⚄⚃⚂⚄ 选“全选”可得 19 分</td>
+                    <td><span class="highlightWord">⚁⚄⚃⚂⚄</span> 选“全选”可得 19 分</td>
                 </tr>
                 <tr>
                     <td>8</td>
                     <td>三条</td>
                     <td>掷到的 3 个点数相等的骰子</td>
                     <td>掷到的所有骰子的点数之和</td>
-                    <td>⚁⚄⚄⚂⚄ 选“三条”可得 20 分</td>
+                    <td>⚁<span class="highlightWord">⚄⚄</span>⚂<span class="highlightWord">⚄</span> 选“三条”可得 20 分</td>
                 </tr>
                 <tr>
                     <td>9</td>
                     <td>四条</td>
                     <td>掷到的 4 个点数相等的骰子</td>
                     <td>掷到的所有骰子的点数之和</td>
-                    <td>⚁⚄⚄⚄⚄ 选“四条”可得 22 分</td>
+                    <td>⚁<span class="highlightWord">⚄⚄⚄⚄</span> 选“四条”可得 22 分</td>
                 </tr>
                 <tr>
                     <td>10</td>
                     <td>葫芦</td>
                     <td>类似于“三带二”</td>
                     <td>掷到的所有骰子的点数之和</td>
-                    <td>⚁⚁⚄⚄⚄ 选“葫芦”可得 19 分</td>
+                    <td><span class="highlightWord">⚁⚁⚄⚄⚄</span> 选“葫芦”可得 19 分</td>
                 </tr>
                 <tr>
                     <td>11</td>
                     <td>小顺</td>
                     <td>4 个连续点数的骰子</td>
                     <td>15 分</td>
-                    <td>⚁⚁⚂⚃⚄ 选“小顺”可得 15 分</td>
+                    <td>⚁<span class="highlightWord">⚁⚂⚃⚄</span> 选“小顺”可得 15 分</td>
                 </tr>
                 <tr>
                     <td>12</td>
                     <td>大顺</td>
                     <td>5 个连续点数的骰子</td>
                     <td>30 分</td>
-                    <td>⚀⚁⚂⚃⚄ 选“大顺”可得 30 分</td>
+                    <td><span class="highlightWord">⚀⚁⚂⚃⚄</span> 选“大顺”可得 30 分</td>
                 </tr>
                 <tr>
                     <td>13</td>
                     <td>快艇</td>
                     <td>5 个相同点数的骰子</td>
                     <td>50 分</td>
-                    <td>⚀⚁⚂⚃⚄ 选“快艇”可得 50 分</td>
+                    <td><span class="highlightWord">⚄⚄⚄⚄⚄</span> 选“快艇”可得 50 分</td>
                 </tr>
             </table>
             <p><b>* 特别说明：</b></p>
@@ -142,8 +142,10 @@
         </div>
         <div class="alertDialog" id="gamePage" hidden>
             <h1>快艇骰子 Yahtzee</h1>
-            <p>现在轮到玩家 <span id="nowNum">?</span></p>
-            <div class="btn" onclick="clickIt()" id="clickBtn">点击掷骰子</div>
+            <div class="box3">
+                <span style="font-size: 25px; line-height: 62px; float: left;">现在轮到玩家 <span id="nowNum">?</span>&ensp;&ensp;</span>
+                <div class="btn" onclick="clickIt()" id="clickBtn">点击掷骰子<br>剩余 3 次</div>
+            </div>
             <div class="box">
                 <div class="box1">
                     <div class="part c1" id="11">⚀</div>
@@ -197,7 +199,7 @@
                 &ensp;
                 <button id="lock5" onclick="lock(5)">锁定此骰子</button>
             </div>
-            <table class="scoringTable" rules="all" cellpadding="3">
+            <table class="scoringTable" rules="all" cellpadding="4">
                 <tr>
                     <th>组合</th>
                     <th class="pl1">玩家 1</th>
@@ -446,7 +448,7 @@
         var plLockedScore=[[-1,-1,-1,-1,-1,-1,0,0,0,-1,-1,-1,-1,-1,-1,-1,0,0],[-1,-1,-1,-1,-1,-1,0,0,0,-1,-1,-1,-1,-1,-1,-1,0,0],[-1,-1,-1,-1,-1,-1,0,0,0,-1,-1,-1,-1,-1,-1,-1,0,0],[-1,-1,-1,-1,-1,-1,0,0,0,-1,-1,-1,-1,-1,-1,-1,0,0],[-1,-1,-1,-1,-1,-1,0,0,0,-1,-1,-1,-1,-1,-1,-1,0,0],[-1,-1,-1,-1,-1,-1,0,0,0,-1,-1,-1,-1,-1,-1,-1,0,0],[-1,-1,-1,-1,-1,-1,0,0,0,-1,-1,-1,-1,-1,-1,-1,0,0],[-1,-1,-1,-1,-1,-1,0,0,0,-1,-1,-1,-1,-1,-1,-1,0,0]];
         var plPossScore=[[-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1],[-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1],[-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1],[-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1],[-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1],[-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1],[-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1],[-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1]];
         var gameCnt=0;
-        gamePlay();
+        //gamePlay();
         function rotate(n)
         {
             for(var i=1;i<=6;i++)
@@ -509,6 +511,12 @@
         }
         function hideExtraPlayers()
         {
+            for(var i=1; i<=numPpl; i++)
+            {
+                var x=document.getElementsByClassName("pl"+i);
+                for(var j=0; j<x.length; j++)
+                    x[j].hidden=false;
+            }
             for(var i=numPpl+1; i<=8; i++)
             {
                 var x=document.getElementsByClassName("pl"+i);
@@ -688,7 +696,7 @@
                 x[i].classList.add("highlightPlayer");
             document.getElementById("nowNum").innerHTML=nowNum+1;
             leftCh=3;
-            document.getElementById("clickBtn").innerHTML="点击掷骰子 剩余 "+leftCh+" 次";
+            document.getElementById("clickBtn").innerHTML="点击掷骰子<br>剩余 "+leftCh+" 次";
             locked=[0,0,0,0,0];
             for(var i=0; i<5; i++)
                 document.getElementById("lock"+(i+1)).innerHTML="锁定此骰子";

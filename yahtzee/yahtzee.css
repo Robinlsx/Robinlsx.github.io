@@ -10,7 +10,7 @@
     position: relative;
     width: 100px;
     height: 100px;
-    margin: 0px;
+    margin: -5px auto;
     display: inline;
     float: left;
     line-height: 100px;
@@ -20,6 +20,15 @@
     width: 500px;
     height: 50px;
     margin: 0px auto;
+}
+.box3{
+    position: relative;
+    width: 320px;
+    height: 62px;
+    margin: -10px auto -10px auto;
+    align-items: center;
+    z-index: 9999;
+    top: 0;
 }
 /*左*/
 /*
@@ -106,9 +115,11 @@
     color: #fff;
     border-radius: 5px;
     cursor: pointer;
-    z-index: 999;
+    /*z-index: 999;
     top: 0;
-    position: relative;
+    position: relative;*/
+    display: inline;
+    float: left;
 }
 .btn:hover{
     background: #5999bf;
@@ -125,6 +136,7 @@
 .buttonHome{
     background-color: #fff;
     color: #000;
+    border: 3px solid #000;
     border-radius: 20px;
     width: 200px;
     height: 50px;
@@ -140,6 +152,7 @@
 .buttonBack{
     background-color: #fff;
     color: #000;
+    border: 3px solid #000;
     border-radius: 20px;
     width: 100px;
     height: 40px;
@@ -166,8 +179,11 @@
 
 .numPpl{
     background-color: #fff;
-    border-color: #000;
-    border-width: 3px;
+    border: 2px solid #000;
+    border-radius: 3px;
+    width: 80px;
+    height: 60px;
+    font-size: 30px;
 }
 .numPpl:hover{
     background-color: #ddd;
@@ -176,6 +192,7 @@
 .buttonGoPlay{    
     background-color: #fff;
     color: #000;
+    border: 2px solid #000;
     border-radius: 20px;
     width: 180px;
     height: 40px;
@@ -192,6 +209,7 @@
     border-spacing: 5px;
     margin-left: auto;
     margin-right: auto;
+    font-size: 20px;
 }
 th{
     font-weight: bold;
@@ -203,15 +221,16 @@ th{
     margin-left: auto;
     margin-right: auto;
     margin-top: -20px;
+    font-size: 18px;
 }
 
 .score{
     background-color: #fff;
     color: #000;
     border: 0;
-    width: 30px;
-    height: 24px;
-    font-size: 18px;
+    width: 40px;
+    height: 28px;
+    font-size: 20px;
     font-family: "Segoe UI";
 }
 .score:hover{
@@ -224,4 +243,14 @@ th{
 
 .winner{
     background-color: gold;
+}
+
+p{
+    font-size: 25px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.highlightWord{
+    background-color: lightgreen;
 }
