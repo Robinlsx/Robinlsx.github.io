@@ -12,13 +12,13 @@
             <button class="buttonHome" onclick="goSetNumPpl()">Start</button><br>
             <button class="buttonHome" onclick="about()">About</button>
         </div>
-        <div class="alertDialog" id="about" hidden>
+        <div class="alertDialogFullHeight" id="about" hidden>
             <h2>About</h2>
             制作者：Robinlee19<br>
             鸣谢：？<br>
             <button class="buttonBack" onclick="quitAbout()">返回</button>
         </div>
-        <div class="alertDialog" id="chooseNum" hidden>
+        <div class="alertDialogFullHeight" id="chooseNum" hidden>
             <h2>请选择游玩人数</h2>
             <button class="numPpl" id="p1" onclick="setNumPpl(1)">1人</button>
             <button class="numPpl" id="p2" onclick="setNumPpl(2)">2人</button><br>
@@ -30,7 +30,7 @@
             <button class="numPpl" id="p8" onclick="setNumPpl(8)">8人</button>
         </div>
         <div class="alertDialog" id="showRules" hidden>
-            <h2>游戏规则</h2>
+            <h1>游戏规则</h1>
             <p>你所要做的是掷 5 个骰子并且得到尽可能高的分数。</p>
             <p>每局游戏包含 12 个回合；在每一回合中，你可以掷 3 次骰子；在掷每一次骰子前，你可以锁定/解锁任意数量的骰子，锁住的骰子在这次掷骰子的过程中保持不变；掷完三次骰子后，你必须进行结算；当然，在掷完任意一次骰子后，你随时可以进行结算。</p>
             <p>结算：根据你已有的骰子组合与下表，选择一种组合并获得对应分数。在一局游戏中，你不能选已经选过的组合，而且（大概率）不会每种组合都掷到，所以请三思而后行[doge]。</p>
@@ -402,7 +402,7 @@
                 </tr>
             </table>
         </div>
-        <div class="alertDialog" id="gameResult" hidden>
+        <div class="alertDialogFullHeight" id="gameResult" hidden>
             <h2>游戏结束！</h2>
             <table class="scoringTable">
                 <tr>
