@@ -142,265 +142,269 @@
         </div>
         <div class="alertDialog" id="gamePage" hidden>
             <h1>快艇骰子 Yahtzee</h1>
-            <div class="box3">
-                <span style="font-size: 25px; line-height: 62px; float: left;">现在轮到玩家 <span id="nowNum">?</span>&ensp;&ensp;</span>
-                <div class="btn" onclick="clickIt()" id="clickBtn">点击掷骰子<br>剩余 3 次</div>
+            <div class="lft">
+                <div class="box3">
+                    <span style="font-size: 2em;">现在轮到玩家 <span id="nowNum">?</span></span><br>
+                    <div class="btn" onclick="clickIt()" id="clickBtn">点击掷骰子<br>剩余 3 次</div>
+                </div>
+                <div class="box">
+                    <div class="box1">
+                        <div class="part c1" id="11">⚀</div>
+                        <div class="part c2" id="12" hidden>⚁</div>
+                        <div class="part c3" id="13" hidden>⚂</div>
+                        <div class="part c4" id="14" hidden>⚃</div>
+                        <div class="part c5" id="15" hidden>⚄</div>
+                        <div class="part c6" id="16" hidden>⚅</div>
+                    </div>
+                    <div class="box1">
+                        <div class="part c1" id="21">⚀</div>
+                        <div class="part c2" id="22" hidden>⚁</div>
+                        <div class="part c3" id="23" hidden>⚂</div>
+                        <div class="part c4" id="24" hidden>⚃</div>
+                        <div class="part c5" id="25" hidden>⚄</div>
+                        <div class="part c6" id="26" hidden>⚅</div>
+                    </div>
+                    <div class="box1">
+                        <div class="part c1" id="31">⚀</div>
+                        <div class="part c2" id="32" hidden>⚁</div>
+                        <div class="part c3" id="33" hidden>⚂</div>
+                        <div class="part c4" id="34" hidden>⚃</div>
+                        <div class="part c5" id="35" hidden>⚄</div>
+                        <div class="part c6" id="36" hidden>⚅</div>
+                    </div>
+                    <div class="box1">
+                        <div class="part c1" id="41">⚀</div>
+                        <div class="part c2" id="42" hidden>⚁</div>
+                        <div class="part c3" id="43" hidden>⚂</div>
+                        <div class="part c4" id="44" hidden>⚃</div>
+                        <div class="part c5" id="45" hidden>⚄</div>
+                        <div class="part c6" id="46" hidden>⚅</div>
+                    </div>
+                    <div class="box1">
+                        <div class="part c1" id="51">⚀</div>
+                        <div class="part c2" id="52" hidden>⚁</div>
+                        <div class="part c3" id="53" hidden>⚂</div>
+                        <div class="part c4" id="54" hidden>⚃</div>
+                        <div class="part c5" id="55" hidden>⚄</div>
+                        <div class="part c6" id="56" hidden>⚅</div>
+                    </div>
+                </div>
+                <div class="box2">
+                    <button id="lock1" onclick="lock(1)">锁定此骰子</button>
+                    &ensp;
+                    <button id="lock2" onclick="lock(2)">锁定此骰子</button>
+                    &ensp;
+                    <button id="lock3" onclick="lock(3)">锁定此骰子</button>
+                    &ensp;
+                    <button id="lock4" onclick="lock(4)">锁定此骰子</button>
+                    &ensp;
+                    <button id="lock5" onclick="lock(5)">锁定此骰子</button>
+                </div>
             </div>
-            <div class="box">
-                <div class="box1">
-                    <div class="part c1" id="11">⚀</div>
-                    <div class="part c2" id="12" hidden>⚁</div>
-                    <div class="part c3" id="13" hidden>⚂</div>
-                    <div class="part c4" id="14" hidden>⚃</div>
-                    <div class="part c5" id="15" hidden>⚄</div>
-                    <div class="part c6" id="16" hidden>⚅</div>
-                </div>
-                <div class="box1">
-                    <div class="part c1" id="21">⚀</div>
-                    <div class="part c2" id="22" hidden>⚁</div>
-                    <div class="part c3" id="23" hidden>⚂</div>
-                    <div class="part c4" id="24" hidden>⚃</div>
-                    <div class="part c5" id="25" hidden>⚄</div>
-                    <div class="part c6" id="26" hidden>⚅</div>
-                </div>
-                <div class="box1">
-                    <div class="part c1" id="31">⚀</div>
-                    <div class="part c2" id="32" hidden>⚁</div>
-                    <div class="part c3" id="33" hidden>⚂</div>
-                    <div class="part c4" id="34" hidden>⚃</div>
-                    <div class="part c5" id="35" hidden>⚄</div>
-                    <div class="part c6" id="36" hidden>⚅</div>
-                </div>
-                <div class="box1">
-                    <div class="part c1" id="41">⚀</div>
-                    <div class="part c2" id="42" hidden>⚁</div>
-                    <div class="part c3" id="43" hidden>⚂</div>
-                    <div class="part c4" id="44" hidden>⚃</div>
-                    <div class="part c5" id="45" hidden>⚄</div>
-                    <div class="part c6" id="46" hidden>⚅</div>
-                </div>
-                <div class="box1">
-                    <div class="part c1" id="51">⚀</div>
-                    <div class="part c2" id="52" hidden>⚁</div>
-                    <div class="part c3" id="53" hidden>⚂</div>
-                    <div class="part c4" id="54" hidden>⚃</div>
-                    <div class="part c5" id="55" hidden>⚄</div>
-                    <div class="part c6" id="56" hidden>⚅</div>
-                </div>
+            <div class="rgt">
+                <table class="scoringTable" rules="all" cellpadding="4">
+                    <tr>
+                        <th>组合</th>
+                        <th class="pl1">玩家 1</th>
+                        <th class="pl2">玩家 2</th>
+                        <th class="pl3">玩家 3</th>
+                        <th class="pl4">玩家 4</th>
+                        <th class="pl5">玩家 5</th>
+                        <th class="pl6">玩家 6</th>
+                        <th class="pl7">玩家 7</th>
+                        <th class="pl8">玩家 8</th>
+                    </tr>
+                    <tr>
+                        <td>一点</td>
+                        <td class="pl1"><button class="score" id="pl1_1" onclick="choose(1)">#</button></td>
+                        <td class="pl2"><button class="score" id="pl2_1" onclick="choose(1)">#</button></td>
+                        <td class="pl3"><button class="score" id="pl3_1" onclick="choose(1)">#</button></td>
+                        <td class="pl4"><button class="score" id="pl4_1" onclick="choose(1)">#</button></td>
+                        <td class="pl5"><button class="score" id="pl5_1" onclick="choose(1)">#</button></td>
+                        <td class="pl6"><button class="score" id="pl6_1" onclick="choose(1)">#</button></td>
+                        <td class="pl7"><button class="score" id="pl7_1" onclick="choose(1)">#</button></td>
+                        <td class="pl8"><button class="score" id="pl8_1" onclick="choose(1)">#</button></td>
+                    </tr>
+                    <tr>
+                        <td>二点</td>
+                        <td class="pl1"><button class="score" id="pl1_2" onclick="choose(2)">#</button></td>
+                        <td class="pl2"><button class="score" id="pl2_2" onclick="choose(2)">#</button></td>
+                        <td class="pl3"><button class="score" id="pl3_2" onclick="choose(2)">#</button></td>
+                        <td class="pl4"><button class="score" id="pl4_2" onclick="choose(2)">#</button></td>
+                        <td class="pl5"><button class="score" id="pl5_2" onclick="choose(2)">#</button></td>
+                        <td class="pl6"><button class="score" id="pl6_2" onclick="choose(2)">#</button></td>
+                        <td class="pl7"><button class="score" id="pl7_2" onclick="choose(2)">#</button></td>
+                        <td class="pl8"><button class="score" id="pl8_2" onclick="choose(2)">#</button></td>
+                    </tr>
+                    <tr>
+                        <td>三点</td>
+                        <td class="pl1"><button class="score" id="pl1_3" onclick="choose(3)">#</button></td>
+                        <td class="pl2"><button class="score" id="pl2_3" onclick="choose(3)">#</button></td>
+                        <td class="pl3"><button class="score" id="pl3_3" onclick="choose(3)">#</button></td>
+                        <td class="pl4"><button class="score" id="pl4_3" onclick="choose(3)">#</button></td>
+                        <td class="pl5"><button class="score" id="pl5_3" onclick="choose(3)">#</button></td>
+                        <td class="pl6"><button class="score" id="pl6_3" onclick="choose(3)">#</button></td>
+                        <td class="pl7"><button class="score" id="pl7_3" onclick="choose(3)">#</button></td>
+                        <td class="pl8"><button class="score" id="pl8_3" onclick="choose(3)">#</button></td>
+                    </tr>
+                    <tr>
+                        <td>四点</td>
+                        <td class="pl1"><button class="score" id="pl1_4" onclick="choose(4)">#</button></td>
+                        <td class="pl2"><button class="score" id="pl2_4" onclick="choose(4)">#</button></td>
+                        <td class="pl3"><button class="score" id="pl3_4" onclick="choose(4)">#</button></td>
+                        <td class="pl4"><button class="score" id="pl4_4" onclick="choose(4)">#</button></td>
+                        <td class="pl5"><button class="score" id="pl5_4" onclick="choose(4)">#</button></td>
+                        <td class="pl6"><button class="score" id="pl6_4" onclick="choose(4)">#</button></td>
+                        <td class="pl7"><button class="score" id="pl7_4" onclick="choose(4)">#</button></td>
+                        <td class="pl8"><button class="score" id="pl8_4" onclick="choose(4)">#</button></td>
+                    </tr>
+                    <tr>
+                        <td>五点</td>
+                        <td class="pl1"><button class="score" id="pl1_5" onclick="choose(5)">#</button></td>
+                        <td class="pl2"><button class="score" id="pl2_5" onclick="choose(5)">#</button></td>
+                        <td class="pl3"><button class="score" id="pl3_5" onclick="choose(5)">#</button></td>
+                        <td class="pl4"><button class="score" id="pl4_5" onclick="choose(5)">#</button></td>
+                        <td class="pl5"><button class="score" id="pl5_5" onclick="choose(5)">#</button></td>
+                        <td class="pl6"><button class="score" id="pl6_5" onclick="choose(5)">#</button></td>
+                        <td class="pl7"><button class="score" id="pl7_5" onclick="choose(5)">#</button></td>
+                        <td class="pl8"><button class="score" id="pl8_5" onclick="choose(5)">#</button></td>                </tr>
+                    <tr>
+                        <td>六点</td>
+                        <td class="pl1"><button class="score" id="pl1_6" onclick="choose(6)">#</button></td>
+                        <td class="pl2"><button class="score" id="pl2_6" onclick="choose(6)">#</button></td>
+                        <td class="pl3"><button class="score" id="pl3_6" onclick="choose(6)">#</button></td>
+                        <td class="pl4"><button class="score" id="pl4_6" onclick="choose(6)">#</button></td>
+                        <td class="pl5"><button class="score" id="pl5_6" onclick="choose(6)">#</button></td>
+                        <td class="pl6"><button class="score" id="pl6_6" onclick="choose(6)">#</button></td>
+                        <td class="pl7"><button class="score" id="pl7_6" onclick="choose(6)">#</button></td>
+                        <td class="pl8"><button class="score" id="pl8_6" onclick="choose(6)">#</button></td>                </tr>
+                    <tr>
+                        <td><b>1-6总计</b></td>
+                        <td class="pl1" id="pl1_i">#</td>
+                        <td class="pl2" id="pl2_i">#</td>
+                        <td class="pl3" id="pl3_i">#</td>
+                        <td class="pl4" id="pl4_i">#</td>
+                        <td class="pl5" id="pl5_i">#</td>
+                        <td class="pl6" id="pl6_i">#</td>
+                        <td class="pl7" id="pl7_i">#</td>
+                        <td class="pl8" id="pl8_i">#</td>
+                    </tr>
+                    <tr>
+                        <td><b>加分</b></td>
+                        <td class="pl1" id="pl1_ex">#</td>
+                        <td class="pl2" id="pl2_ex">#</td>
+                        <td class="pl3" id="pl3_ex">#</td>
+                        <td class="pl4" id="pl4_ex">#</td>
+                        <td class="pl5" id="pl5_ex">#</td>
+                        <td class="pl6" id="pl6_ex">#</td>
+                        <td class="pl7" id="pl7_ex">#</td>
+                        <td class="pl8" id="pl8_ex">#</td>
+                    </tr>
+                    <tr>
+                        <td><b>上部总分</b></td>
+                        <td class="pl1" id="pl1_a">#</td>
+                        <td class="pl2" id="pl2_a">#</td>
+                        <td class="pl3" id="pl3_a">#</td>
+                        <td class="pl4" id="pl4_a">#</td>
+                        <td class="pl5" id="pl5_a">#</td>
+                        <td class="pl6" id="pl6_a">#</td>
+                        <td class="pl7" id="pl7_a">#</td>
+                        <td class="pl8" id="pl8_a">#</td>
+                    </tr>
+                    <tr>
+                        <td>全选</td>
+                        <td class="pl1"><button class="score" id="pl1_7" onclick="choose(7)">#</button></td>
+                        <td class="pl2"><button class="score" id="pl2_7" onclick="choose(7)">#</button></td>
+                        <td class="pl3"><button class="score" id="pl3_7" onclick="choose(7)">#</button></td>
+                        <td class="pl4"><button class="score" id="pl4_7" onclick="choose(7)">#</button></td>
+                        <td class="pl5"><button class="score" id="pl5_7" onclick="choose(7)">#</button></td>
+                        <td class="pl6"><button class="score" id="pl6_7" onclick="choose(7)">#</button></td>
+                        <td class="pl7"><button class="score" id="pl7_7" onclick="choose(7)">#</button></td>
+                        <td class="pl8"><button class="score" id="pl8_7" onclick="choose(7)">#</button></td>                </tr>
+                    <tr>
+                        <td>三条</td>
+                        <td class="pl1"><button class="score" id="pl1_8" onclick="choose(8)">#</button></td>
+                        <td class="pl2"><button class="score" id="pl2_8" onclick="choose(8)">#</button></td>
+                        <td class="pl3"><button class="score" id="pl3_8" onclick="choose(8)">#</button></td>
+                        <td class="pl4"><button class="score" id="pl4_8" onclick="choose(8)">#</button></td>
+                        <td class="pl5"><button class="score" id="pl5_8" onclick="choose(8)">#</button></td>
+                        <td class="pl6"><button class="score" id="pl6_8" onclick="choose(8)">#</button></td>
+                        <td class="pl7"><button class="score" id="pl7_8" onclick="choose(8)">#</button></td>
+                        <td class="pl8"><button class="score" id="pl8_8" onclick="choose(8)">#</button></td>                </tr>
+                    <tr>
+                        <td>四条</td>
+                        <td class="pl1"><button class="score" id="pl1_9" onclick="choose(9)">#</button></td>
+                        <td class="pl2"><button class="score" id="pl2_9" onclick="choose(9)">#</button></td>
+                        <td class="pl3"><button class="score" id="pl3_9" onclick="choose(9)">#</button></td>
+                        <td class="pl4"><button class="score" id="pl4_9" onclick="choose(9)">#</button></td>
+                        <td class="pl5"><button class="score" id="pl5_9" onclick="choose(9)">#</button></td>
+                        <td class="pl6"><button class="score" id="pl6_9" onclick="choose(9)">#</button></td>
+                        <td class="pl7"><button class="score" id="pl7_9" onclick="choose(9)">#</button></td>
+                        <td class="pl8"><button class="score" id="pl8_9" onclick="choose(9)">#</button></td>                </tr>
+                    <tr>
+                        <td>葫芦</td>
+                        <td class="pl1"><button class="score" id="pl1_10" onclick="choose(10)">#</button></td>
+                        <td class="pl2"><button class="score" id="pl2_10" onclick="choose(10)">#</button></td>
+                        <td class="pl3"><button class="score" id="pl3_10" onclick="choose(10)">#</button></td>
+                        <td class="pl4"><button class="score" id="pl4_10" onclick="choose(10)">#</button></td>
+                        <td class="pl5"><button class="score" id="pl5_10" onclick="choose(10)">#</button></td>
+                        <td class="pl6"><button class="score" id="pl6_10" onclick="choose(10)">#</button></td>
+                        <td class="pl7"><button class="score" id="pl7_10" onclick="choose(10)">#</button></td>
+                        <td class="pl8"><button class="score" id="pl8_10" onclick="choose(10)">#</button></td>                </tr>
+                    <tr>
+                        <td>小顺</td>
+                        <td class="pl1"><button class="score" id="pl1_11" onclick="choose(11)">#</button></td>
+                        <td class="pl2"><button class="score" id="pl2_11" onclick="choose(11)">#</button></td>
+                        <td class="pl3"><button class="score" id="pl3_11" onclick="choose(11)">#</button></td>
+                        <td class="pl4"><button class="score" id="pl4_11" onclick="choose(11)">#</button></td>
+                        <td class="pl5"><button class="score" id="pl5_11" onclick="choose(11)">#</button></td>
+                        <td class="pl6"><button class="score" id="pl6_11" onclick="choose(11)">#</button></td>
+                        <td class="pl7"><button class="score" id="pl7_11" onclick="choose(11)">#</button></td>
+                        <td class="pl8"><button class="score" id="pl8_11" onclick="choose(11)">#</button></td>                </tr>
+                    <tr>
+                        <td>大顺</td>
+                        <td class="pl1"><button class="score" id="pl1_12" onclick="choose(12)">#</button></td>
+                        <td class="pl2"><button class="score" id="pl2_12" onclick="choose(12)">#</button></td>
+                        <td class="pl3"><button class="score" id="pl3_12" onclick="choose(12)">#</button></td>
+                        <td class="pl4"><button class="score" id="pl4_12" onclick="choose(12)">#</button></td>
+                        <td class="pl5"><button class="score" id="pl5_12" onclick="choose(12)">#</button></td>
+                        <td class="pl6"><button class="score" id="pl6_12" onclick="choose(12)">#</button></td>
+                        <td class="pl7"><button class="score" id="pl7_12" onclick="choose(12)">#</button></td>
+                        <td class="pl8"><button class="score" id="pl8_12" onclick="choose(12)">#</button></td>                </tr>
+                    <tr>
+                        <td>快艇</td>
+                        <td class="pl1"><button class="score" id="pl1_13" onclick="choose(13)">#</button></td>
+                        <td class="pl2"><button class="score" id="pl2_13" onclick="choose(13)">#</button></td>
+                        <td class="pl3"><button class="score" id="pl3_13" onclick="choose(13)">#</button></td>
+                        <td class="pl4"><button class="score" id="pl4_13" onclick="choose(13)">#</button></td>
+                        <td class="pl5"><button class="score" id="pl5_13" onclick="choose(13)">#</button></td>
+                        <td class="pl6"><button class="score" id="pl6_13" onclick="choose(13)">#</button></td>
+                        <td class="pl7"><button class="score" id="pl7_13" onclick="choose(13)">#</button></td>
+                        <td class="pl8"><button class="score" id="pl8_13" onclick="choose(13)">#</button></td>                </tr>
+                    <tr>
+                        <td><b>下部总分</b></td>
+                        <td class="pl1" id="pl1_b">#</td>
+                        <td class="pl2" id="pl2_b">#</td>
+                        <td class="pl3" id="pl3_b">#</td>
+                        <td class="pl4" id="pl4_b">#</td>
+                        <td class="pl5" id="pl5_b">#</td>
+                        <td class="pl6" id="pl6_b">#</td>
+                        <td class="pl7" id="pl7_b">#</td>
+                        <td class="pl8" id="pl8_b">#</td>
+                    </tr>
+                    <tr>
+                        <td><b>Final</b></td>
+                        <td class="pl1 tot" id="pl1_t">#</td>
+                        <td class="pl2 tot" id="pl2_t">#</td>
+                        <td class="pl3 tot" id="pl3_t">#</td>
+                        <td class="pl4 tot" id="pl4_t">#</td>
+                        <td class="pl5 tot" id="pl5_t">#</td>
+                        <td class="pl6 tot" id="pl6_t">#</td>
+                        <td class="pl7 tot" id="pl7_t">#</td>
+                        <td class="pl8 tot" id="pl8_t">#</td>
+                    </tr>
+                </table>
             </div>
-            <div class="box2">
-                <button id="lock1" onclick="lock(1)">锁定此骰子</button>
-                &ensp;
-                <button id="lock2" onclick="lock(2)">锁定此骰子</button>
-                &ensp;
-                <button id="lock3" onclick="lock(3)">锁定此骰子</button>
-                &ensp;
-                <button id="lock4" onclick="lock(4)">锁定此骰子</button>
-                &ensp;
-                <button id="lock5" onclick="lock(5)">锁定此骰子</button>
-            </div>
-            <table class="scoringTable" rules="all" cellpadding="4">
-                <tr>
-                    <th>组合</th>
-                    <th class="pl1">玩家 1</th>
-                    <th class="pl2">玩家 2</th>
-                    <th class="pl3">玩家 3</th>
-                    <th class="pl4">玩家 4</th>
-                    <th class="pl5">玩家 5</th>
-                    <th class="pl6">玩家 6</th>
-                    <th class="pl7">玩家 7</th>
-                    <th class="pl8">玩家 8</th>
-                </tr>
-                <tr>
-                    <td>一点</td>
-                    <td class="pl1"><button class="score" id="pl1_1" onclick="choose(1)">#</button></td>
-                    <td class="pl2"><button class="score" id="pl2_1" onclick="choose(1)">#</button></td>
-                    <td class="pl3"><button class="score" id="pl3_1" onclick="choose(1)">#</button></td>
-                    <td class="pl4"><button class="score" id="pl4_1" onclick="choose(1)">#</button></td>
-                    <td class="pl5"><button class="score" id="pl5_1" onclick="choose(1)">#</button></td>
-                    <td class="pl6"><button class="score" id="pl6_1" onclick="choose(1)">#</button></td>
-                    <td class="pl7"><button class="score" id="pl7_1" onclick="choose(1)">#</button></td>
-                    <td class="pl8"><button class="score" id="pl8_1" onclick="choose(1)">#</button></td>
-                </tr>
-                <tr>
-                    <td>二点</td>
-                    <td class="pl1"><button class="score" id="pl1_2" onclick="choose(2)">#</button></td>
-                    <td class="pl2"><button class="score" id="pl2_2" onclick="choose(2)">#</button></td>
-                    <td class="pl3"><button class="score" id="pl3_2" onclick="choose(2)">#</button></td>
-                    <td class="pl4"><button class="score" id="pl4_2" onclick="choose(2)">#</button></td>
-                    <td class="pl5"><button class="score" id="pl5_2" onclick="choose(2)">#</button></td>
-                    <td class="pl6"><button class="score" id="pl6_2" onclick="choose(2)">#</button></td>
-                    <td class="pl7"><button class="score" id="pl7_2" onclick="choose(2)">#</button></td>
-                    <td class="pl8"><button class="score" id="pl8_2" onclick="choose(2)">#</button></td>
-                </tr>
-                <tr>
-                    <td>三点</td>
-                    <td class="pl1"><button class="score" id="pl1_3" onclick="choose(3)">#</button></td>
-                    <td class="pl2"><button class="score" id="pl2_3" onclick="choose(3)">#</button></td>
-                    <td class="pl3"><button class="score" id="pl3_3" onclick="choose(3)">#</button></td>
-                    <td class="pl4"><button class="score" id="pl4_3" onclick="choose(3)">#</button></td>
-                    <td class="pl5"><button class="score" id="pl5_3" onclick="choose(3)">#</button></td>
-                    <td class="pl6"><button class="score" id="pl6_3" onclick="choose(3)">#</button></td>
-                    <td class="pl7"><button class="score" id="pl7_3" onclick="choose(3)">#</button></td>
-                    <td class="pl8"><button class="score" id="pl8_3" onclick="choose(3)">#</button></td>
-                </tr>
-                <tr>
-                    <td>四点</td>
-                    <td class="pl1"><button class="score" id="pl1_4" onclick="choose(4)">#</button></td>
-                    <td class="pl2"><button class="score" id="pl2_4" onclick="choose(4)">#</button></td>
-                    <td class="pl3"><button class="score" id="pl3_4" onclick="choose(4)">#</button></td>
-                    <td class="pl4"><button class="score" id="pl4_4" onclick="choose(4)">#</button></td>
-                    <td class="pl5"><button class="score" id="pl5_4" onclick="choose(4)">#</button></td>
-                    <td class="pl6"><button class="score" id="pl6_4" onclick="choose(4)">#</button></td>
-                    <td class="pl7"><button class="score" id="pl7_4" onclick="choose(4)">#</button></td>
-                    <td class="pl8"><button class="score" id="pl8_4" onclick="choose(4)">#</button></td>
-                </tr>
-                <tr>
-                    <td>五点</td>
-                    <td class="pl1"><button class="score" id="pl1_5" onclick="choose(5)">#</button></td>
-                    <td class="pl2"><button class="score" id="pl2_5" onclick="choose(5)">#</button></td>
-                    <td class="pl3"><button class="score" id="pl3_5" onclick="choose(5)">#</button></td>
-                    <td class="pl4"><button class="score" id="pl4_5" onclick="choose(5)">#</button></td>
-                    <td class="pl5"><button class="score" id="pl5_5" onclick="choose(5)">#</button></td>
-                    <td class="pl6"><button class="score" id="pl6_5" onclick="choose(5)">#</button></td>
-                    <td class="pl7"><button class="score" id="pl7_5" onclick="choose(5)">#</button></td>
-                    <td class="pl8"><button class="score" id="pl8_5" onclick="choose(5)">#</button></td>                </tr>
-                <tr>
-                    <td>六点</td>
-                    <td class="pl1"><button class="score" id="pl1_6" onclick="choose(6)">#</button></td>
-                    <td class="pl2"><button class="score" id="pl2_6" onclick="choose(6)">#</button></td>
-                    <td class="pl3"><button class="score" id="pl3_6" onclick="choose(6)">#</button></td>
-                    <td class="pl4"><button class="score" id="pl4_6" onclick="choose(6)">#</button></td>
-                    <td class="pl5"><button class="score" id="pl5_6" onclick="choose(6)">#</button></td>
-                    <td class="pl6"><button class="score" id="pl6_6" onclick="choose(6)">#</button></td>
-                    <td class="pl7"><button class="score" id="pl7_6" onclick="choose(6)">#</button></td>
-                    <td class="pl8"><button class="score" id="pl8_6" onclick="choose(6)">#</button></td>                </tr>
-                <tr>
-                    <td><b>1-6总计</b></td>
-                    <td class="pl1" id="pl1_i">#</td>
-                    <td class="pl2" id="pl2_i">#</td>
-                    <td class="pl3" id="pl3_i">#</td>
-                    <td class="pl4" id="pl4_i">#</td>
-                    <td class="pl5" id="pl5_i">#</td>
-                    <td class="pl6" id="pl6_i">#</td>
-                    <td class="pl7" id="pl7_i">#</td>
-                    <td class="pl8" id="pl8_i">#</td>
-                </tr>
-                <tr>
-                    <td><b>加分</b></td>
-                    <td class="pl1" id="pl1_ex">#</td>
-                    <td class="pl2" id="pl2_ex">#</td>
-                    <td class="pl3" id="pl3_ex">#</td>
-                    <td class="pl4" id="pl4_ex">#</td>
-                    <td class="pl5" id="pl5_ex">#</td>
-                    <td class="pl6" id="pl6_ex">#</td>
-                    <td class="pl7" id="pl7_ex">#</td>
-                    <td class="pl8" id="pl8_ex">#</td>
-                </tr>
-                <tr>
-                    <td><b>上部总分</b></td>
-                    <td class="pl1" id="pl1_a">#</td>
-                    <td class="pl2" id="pl2_a">#</td>
-                    <td class="pl3" id="pl3_a">#</td>
-                    <td class="pl4" id="pl4_a">#</td>
-                    <td class="pl5" id="pl5_a">#</td>
-                    <td class="pl6" id="pl6_a">#</td>
-                    <td class="pl7" id="pl7_a">#</td>
-                    <td class="pl8" id="pl8_a">#</td>
-                </tr>
-                <tr>
-                    <td>全选</td>
-                    <td class="pl1"><button class="score" id="pl1_7" onclick="choose(7)">#</button></td>
-                    <td class="pl2"><button class="score" id="pl2_7" onclick="choose(7)">#</button></td>
-                    <td class="pl3"><button class="score" id="pl3_7" onclick="choose(7)">#</button></td>
-                    <td class="pl4"><button class="score" id="pl4_7" onclick="choose(7)">#</button></td>
-                    <td class="pl5"><button class="score" id="pl5_7" onclick="choose(7)">#</button></td>
-                    <td class="pl6"><button class="score" id="pl6_7" onclick="choose(7)">#</button></td>
-                    <td class="pl7"><button class="score" id="pl7_7" onclick="choose(7)">#</button></td>
-                    <td class="pl8"><button class="score" id="pl8_7" onclick="choose(7)">#</button></td>                </tr>
-                <tr>
-                    <td>三条</td>
-                    <td class="pl1"><button class="score" id="pl1_8" onclick="choose(8)">#</button></td>
-                    <td class="pl2"><button class="score" id="pl2_8" onclick="choose(8)">#</button></td>
-                    <td class="pl3"><button class="score" id="pl3_8" onclick="choose(8)">#</button></td>
-                    <td class="pl4"><button class="score" id="pl4_8" onclick="choose(8)">#</button></td>
-                    <td class="pl5"><button class="score" id="pl5_8" onclick="choose(8)">#</button></td>
-                    <td class="pl6"><button class="score" id="pl6_8" onclick="choose(8)">#</button></td>
-                    <td class="pl7"><button class="score" id="pl7_8" onclick="choose(8)">#</button></td>
-                    <td class="pl8"><button class="score" id="pl8_8" onclick="choose(8)">#</button></td>                </tr>
-                <tr>
-                    <td>四条</td>
-                    <td class="pl1"><button class="score" id="pl1_9" onclick="choose(9)">#</button></td>
-                    <td class="pl2"><button class="score" id="pl2_9" onclick="choose(9)">#</button></td>
-                    <td class="pl3"><button class="score" id="pl3_9" onclick="choose(9)">#</button></td>
-                    <td class="pl4"><button class="score" id="pl4_9" onclick="choose(9)">#</button></td>
-                    <td class="pl5"><button class="score" id="pl5_9" onclick="choose(9)">#</button></td>
-                    <td class="pl6"><button class="score" id="pl6_9" onclick="choose(9)">#</button></td>
-                    <td class="pl7"><button class="score" id="pl7_9" onclick="choose(9)">#</button></td>
-                    <td class="pl8"><button class="score" id="pl8_9" onclick="choose(9)">#</button></td>                </tr>
-                <tr>
-                    <td>葫芦</td>
-                    <td class="pl1"><button class="score" id="pl1_10" onclick="choose(10)">#</button></td>
-                    <td class="pl2"><button class="score" id="pl2_10" onclick="choose(10)">#</button></td>
-                    <td class="pl3"><button class="score" id="pl3_10" onclick="choose(10)">#</button></td>
-                    <td class="pl4"><button class="score" id="pl4_10" onclick="choose(10)">#</button></td>
-                    <td class="pl5"><button class="score" id="pl5_10" onclick="choose(10)">#</button></td>
-                    <td class="pl6"><button class="score" id="pl6_10" onclick="choose(10)">#</button></td>
-                    <td class="pl7"><button class="score" id="pl7_10" onclick="choose(10)">#</button></td>
-                    <td class="pl8"><button class="score" id="pl8_10" onclick="choose(10)">#</button></td>                </tr>
-                <tr>
-                    <td>小顺</td>
-                    <td class="pl1"><button class="score" id="pl1_11" onclick="choose(11)">#</button></td>
-                    <td class="pl2"><button class="score" id="pl2_11" onclick="choose(11)">#</button></td>
-                    <td class="pl3"><button class="score" id="pl3_11" onclick="choose(11)">#</button></td>
-                    <td class="pl4"><button class="score" id="pl4_11" onclick="choose(11)">#</button></td>
-                    <td class="pl5"><button class="score" id="pl5_11" onclick="choose(11)">#</button></td>
-                    <td class="pl6"><button class="score" id="pl6_11" onclick="choose(11)">#</button></td>
-                    <td class="pl7"><button class="score" id="pl7_11" onclick="choose(11)">#</button></td>
-                    <td class="pl8"><button class="score" id="pl8_11" onclick="choose(11)">#</button></td>                </tr>
-                <tr>
-                    <td>大顺</td>
-                    <td class="pl1"><button class="score" id="pl1_12" onclick="choose(12)">#</button></td>
-                    <td class="pl2"><button class="score" id="pl2_12" onclick="choose(12)">#</button></td>
-                    <td class="pl3"><button class="score" id="pl3_12" onclick="choose(12)">#</button></td>
-                    <td class="pl4"><button class="score" id="pl4_12" onclick="choose(12)">#</button></td>
-                    <td class="pl5"><button class="score" id="pl5_12" onclick="choose(12)">#</button></td>
-                    <td class="pl6"><button class="score" id="pl6_12" onclick="choose(12)">#</button></td>
-                    <td class="pl7"><button class="score" id="pl7_12" onclick="choose(12)">#</button></td>
-                    <td class="pl8"><button class="score" id="pl8_12" onclick="choose(12)">#</button></td>                </tr>
-                <tr>
-                    <td>快艇</td>
-                    <td class="pl1"><button class="score" id="pl1_13" onclick="choose(13)">#</button></td>
-                    <td class="pl2"><button class="score" id="pl2_13" onclick="choose(13)">#</button></td>
-                    <td class="pl3"><button class="score" id="pl3_13" onclick="choose(13)">#</button></td>
-                    <td class="pl4"><button class="score" id="pl4_13" onclick="choose(13)">#</button></td>
-                    <td class="pl5"><button class="score" id="pl5_13" onclick="choose(13)">#</button></td>
-                    <td class="pl6"><button class="score" id="pl6_13" onclick="choose(13)">#</button></td>
-                    <td class="pl7"><button class="score" id="pl7_13" onclick="choose(13)">#</button></td>
-                    <td class="pl8"><button class="score" id="pl8_13" onclick="choose(13)">#</button></td>                </tr>
-                <tr>
-                    <td><b>下部总分</b></td>
-                    <td class="pl1" id="pl1_b">#</td>
-                    <td class="pl2" id="pl2_b">#</td>
-                    <td class="pl3" id="pl3_b">#</td>
-                    <td class="pl4" id="pl4_b">#</td>
-                    <td class="pl5" id="pl5_b">#</td>
-                    <td class="pl6" id="pl6_b">#</td>
-                    <td class="pl7" id="pl7_b">#</td>
-                    <td class="pl8" id="pl8_b">#</td>
-                </tr>
-                <tr>
-                    <td><b>Final</b></td>
-                    <td class="pl1 tot" id="pl1_t">#</td>
-                    <td class="pl2 tot" id="pl2_t">#</td>
-                    <td class="pl3 tot" id="pl3_t">#</td>
-                    <td class="pl4 tot" id="pl4_t">#</td>
-                    <td class="pl5 tot" id="pl5_t">#</td>
-                    <td class="pl6 tot" id="pl6_t">#</td>
-                    <td class="pl7 tot" id="pl7_t">#</td>
-                    <td class="pl8 tot" id="pl8_t">#</td>
-                </tr>
-            </table>
         </div>
         <div class="alertDialogFullHeight" id="gameResult" hidden>
             <h2>游戏结束！</h2>
