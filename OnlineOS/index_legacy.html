@@ -16,6 +16,8 @@
             <tr><td id="c3"></td><td id="c3c"></td></tr>
             <tr><td id="c4"></td><td id="c4c"></td></tr>
             <tr><td id="c5"></td><td id="c5c"></td></tr>
+            <tr><td id="c6"></td><td id="c6c"></td></tr>
+            <tr><td id="c7"></td><td id="c7c"></td></tr>
         </table>
     </div>
     <div class="next" style="float: right; color:#ffffff; margin-right:100px;">
@@ -24,29 +26,35 @@
         <div class="container" style="text-align: center;">
             <span id="nxt" style="font-size:200px; color: rgb(31, 184, 255);"></span>
             <br>
+            <span id="ps" style="font-size:160px; color: #55da34;"></span>
+            <br>
             <span id="cnt" style="font-size:100px;"></span>
         </div>
     </div>
     <script>
-        classes=["语文","数学","化学","生物","物理"];
-        timestxt=["8:15","9:45","10:00","11:30","13:15","14:25","14:40","15:50","16:10","17:20"];
+        classes=["语文","英语","化学","历史","政治","数学","物理"];
+        timestxt=["8:00","8:45","8:55","9:40","10:00","10:45","11:00","11:45","13:30","14:15","14:25","15:10","15:25","16:10"];
         times=[
-            new Date(new Date().getFullYear(),new Date().getMonth(),new Date().getDate(),8,15,0,0),
-            new Date(new Date().getFullYear(),new Date().getMonth(),new Date().getDate(),9,45,0,0),
+            new Date(new Date().getFullYear(),new Date().getMonth(),new Date().getDate(),8,0,0,0),
+            new Date(new Date().getFullYear(),new Date().getMonth(),new Date().getDate(),8,45,0,0),
+            new Date(new Date().getFullYear(),new Date().getMonth(),new Date().getDate(),8,55,0,0),
+            new Date(new Date().getFullYear(),new Date().getMonth(),new Date().getDate(),9,40,0,0),
             new Date(new Date().getFullYear(),new Date().getMonth(),new Date().getDate(),10,0,0,0),
-            new Date(new Date().getFullYear(),new Date().getMonth(),new Date().getDate(),11,30,0,0),
-            new Date(new Date().getFullYear(),new Date().getMonth(),new Date().getDate(),13,15,0,0),
+            new Date(new Date().getFullYear(),new Date().getMonth(),new Date().getDate(),10,45,0,0),
+            new Date(new Date().getFullYear(),new Date().getMonth(),new Date().getDate(),10,55,0,0),
+            new Date(new Date().getFullYear(),new Date().getMonth(),new Date().getDate(),11,45,0,0),
+            new Date(new Date().getFullYear(),new Date().getMonth(),new Date().getDate(),13,30,0,0),
+            new Date(new Date().getFullYear(),new Date().getMonth(),new Date().getDate(),14,15,0,0),
             new Date(new Date().getFullYear(),new Date().getMonth(),new Date().getDate(),14,25,0,0),
-            new Date(new Date().getFullYear(),new Date().getMonth(),new Date().getDate(),14,40,0,0),
-            new Date(new Date().getFullYear(),new Date().getMonth(),new Date().getDate(),15,50,0,0),
+            new Date(new Date().getFullYear(),new Date().getMonth(),new Date().getDate(),15,10,0,0),
+            new Date(new Date().getFullYear(),new Date().getMonth(),new Date().getDate(),15,20,0,0),
             new Date(new Date().getFullYear(),new Date().getMonth(),new Date().getDate(),16,10,0,0),
-            new Date(new Date().getFullYear(),new Date().getMonth(),new Date().getDate(),17,20,0,0),
         ];
-        /*eyetimestxt=["10:55","15:20"];
+        eyetimestxt=["10:55","15:20"];
         eyetimes=[
             new Date(new Date().getFullYear(),new Date().getMonth(),new Date().getDate(),10,55,0,0),
             new Date(new Date().getFullYear(),new Date().getMonth(),new Date().getDate(),15,20,0,0)
-        ];*/
+        ];
         now=0;
         function Update()
         {
@@ -67,10 +75,14 @@
             if(localDate>times[7]) now++,document.getElementById("c4c").innerHTML="√",document.getElementById("c4c").style="color: #00ff00";
             if(localDate>times[8]) now++,document.getElementById("c5c").innerHTML="◀",document.getElementById("c5c").style="color: #ffff00";
             if(localDate>times[9]) now++,document.getElementById("c5c").innerHTML="√",document.getElementById("c5c").style="color: #00ff00";
+            if(localDate>times[10]) now++,document.getElementById("c6c").innerHTML="◀",document.getElementById("c6c").style="color: #ffff00";
+            if(localDate>times[11]) now++,document.getElementById("c6c").innerHTML="√",document.getElementById("c6c").style="color: #00ff00";
+            if(localDate>times[12]) now++,document.getElementById("c7c").innerHTML="◀",document.getElementById("c7c").style="color: #ffff00";
+            if(localDate>times[13]) now++,document.getElementById("c7c").innerHTML="√",document.getElementById("c7c").style="color: #00ff00";
             document.getElementById("nxt").innerHTML=classes[Math.floor(now/2)]+" "+timestxt[now];
-            //if(now==4) document.getElementById("ps").innerHTML="大课间";
-            //if(now==6) document.getElementById("ps").innerHTML="眼操 10:55";
-            //if(now==12) document.getElementById("ps").innerHTML="眼操 15:20";
+            if(now==4) document.getElementById("ps").innerHTML="大课间";
+            if(now==6) document.getElementById("ps").innerHTML="眼操 10:55";
+            if(now==12) document.getElementById("ps").innerHTML="眼操 15:20";
             toClass=times[now]-localDate;
             secToClass=Math.ceil(toClass/1000)%60;
             minToClass=(Math.ceil(toClass/1000)-secToClass)/60;
@@ -80,7 +92,7 @@
             if(minToClass.length==1) minToClass='0'+minToClass;
             if(now%2==0) document.getElementById("cnt").innerHTML="还有 "+minToClass+":"+secToClass+" 上课",document.getElementById("nxttxt").innerHTML="下一节：";
             else document.getElementById("cnt").innerHTML="还有 "+minToClass+":"+secToClass+" 下课",document.getElementById("nxttxt").innerHTML="本节：";
-            if(now==10) document.getElementById("nxt").innerHTML="课上完喽",document.getElementById("cnt").innerHTML="还有 -114:-514 上课";
+            if(now==14) document.getElementById("nxt").innerHTML="课上完喽",document.getElementById("ps").innerHTML="休息一下吧~",document.getElementById("cnt").innerHTML="还有 -114:-514 上课";
         }
         setInterval("Update()",1000);
         document.getElementById("c1").innerHTML=classes[0];
@@ -88,7 +100,7 @@
         document.getElementById("c3").innerHTML=classes[2];
         document.getElementById("c4").innerHTML=classes[3];
         document.getElementById("c5").innerHTML=classes[4];
-        //document.getElementById("c6").innerHTML=classes[5];
-        //document.getElementById("c7").innerHTML=classes[6];
+        document.getElementById("c6").innerHTML=classes[5];
+        document.getElementById("c7").innerHTML=classes[6];
     </script>
 </body>
